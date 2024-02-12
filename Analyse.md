@@ -57,6 +57,24 @@ Il manque peut-etre l'UML mais rien de bien méchant.
 
 ## Analyse du git :
 Nombre de contributeurs : 14
+The Red5 Project
+Luke Hubbard (luke@codegent.com)
+Dominick Accattato (daccattato@gmail.com)
+Chris Allen (mrchrisallen@gmail.com)
+Joachim Bauch (jojo@struktur.de)
+Mick Herres (mickherres@hotmail.com)
+John Grden (johng@acmewebworks.com)
+Grant Davies (grant@bluetube.com)
+Steven Elliott (steven.s.elliott@gmail.com)
+Jokul Tian (tianxuefeng@gmail.com)
+Steven Gong (steven.gong@gmail.com)
+Paul Gregoire (mondain@gmail.com)
+Michael Klishin (michael.s.klishin@gmail.com)
+Thijs Triemstra (info@collab.nl)
+Dan Rossi (electroteque@gmail.com)
+Anton Lebedevich (mabrek@gmail.com)
+Art Clarke (aclarke@xuggle.com)
+Tiago Daniel Jacobs (tiago@imdt.com.br)
 
 Sponsor du projet :  `ko-fi.com/mondain`
 
@@ -69,6 +87,7 @@ Pull-Request : 5
 
 
 on peut remarquer que `ko-fi.com/mondain` est bel et bien le contributeur principal,
+un site spécial pour que tout le monde puisse corriger les bugs en open source.
 
 
 Le projet est toujours actif à l'heure d'aujourd'hui,le dernier commit date de 3 semaines, pour un porjet de cette envergure on peut dire qu'il est assez bien maintenu.
@@ -90,7 +109,7 @@ circleci-project-setup
 
 ## Utilisation de bibliothèques extérieures :
 
-le nombre de bibliothèques extérieures référencées : 
+le nombre de bibliothèques extérieures référencées : 46 bibliothéques externes et la plus part sont des bibliothèques maven-org, maven-junit, et maven-common.
 
 la différence entre les bibliothèques référencées et celles utilisées :
 
@@ -99,11 +118,15 @@ les bibliothèques réellement utilisées :
  
 ## Organisation en paquetages :
 
-le nombre de paquetages :
+le nombre de paquetages : il y a 6 packages principaux
 
 les liens entre les paquetages :
 
-les noms des paquetages :
+les noms des paquetages : client , on peut comprendre que c'est le package qui gère les clients
+server : le server de sockets 
+server- common : pas très évident à deviner à quoi sert ce package
+io : les sockets et les controllers
+service  et parent
 
 
 
@@ -140,7 +163,7 @@ la cohésion des classes au sein d’un paquetage en particulier :
 
 ## Tests :
 
-le nombre de tests : 
+le nombre de tests : il est intéressant de remarquer que  dans le porjet on nous dit de skip les tests, et de ce fait on a 0 tests qui passent alors qu'ils ont bel et bien fait des tests !
 
 la couverture de tests : 
 
@@ -148,10 +171,12 @@ la couverture de tests :
 le type de tests : unitaires
 
 
-les tests passent : 
+les tests passent : on nous a dit de skip
 
+nombre de bugs : 230 ! c'est énorme, mais pour un projet pareil je pense que c'est cohérent,
+depuis le temps c'est vrai qu'ils auraient pu corriger les bugs.
 
-
+et niveau sécurité ça laisse à désirer, on a une note de E niveau sécurité.
 
 
 
@@ -179,8 +204,7 @@ les appels à du code déprécié :
 
 ## Duplication du code :
  
-le code dupliqué : 
- 
+le code dupliqué : 4% de code dupliqué, plutot pas mal, on a 57k de lignes de code dupliquées. et 161 blocs dupliqués, on aurait facilement pu améliorer ça.
  
 ## God Classes :
 
@@ -224,6 +248,7 @@ médiane) :
 
 
 ## Code mort :
+Code Smells : 3000 !
 
 
 ---------------------------------------------------------
