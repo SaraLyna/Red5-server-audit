@@ -1,6 +1,9 @@
 ## Projet de GL : 
 ## Partie 1 : Audit du projet
-Sara Lyna OUYAHIA
+
+## Binome :
+- Sara Lyna OUYAHIA
+- Thibault TISSERAND
 
 
 ## Contexte :
@@ -32,11 +35,15 @@ Red5 is an Open Source Flash Server written in Java that supports:
 
 ## 1.2) Description du projet :
 
-- Le readme est pertinent, il y a les commandes essentielles pour faire marcher le projet telle la compilation et l'exécution.
-To build the red5 jars, execute the following on the command line:
+- Le [readme](https://github.com/Red5/red5-server/blob/master/README.md) est pertinent et complet. Il contient une description du projet, les commandes maven pour installer et lancer le projet. Il contient aussi les commandes pour build le projet depuis la source ainsi que celle pour faire fonctionner le projet dans Eclipse. Une liste des anciennes versions est également disponible dans le readme.
 
-- `mvn -Dmaven.test.skip=true install`
-This will create the jars in the "target" directory of the workspace; this will also skip the unit tests.
+- La documentation est pertinente et complète. Elle se situe dans le [wiki](https://github.com/Red5/red5-server/wiki) du projet sur github.
+Le wiki contient 23 catégories avec chacune des sous parties. Il y a des parties pour l'installation sous Linux et sous MacOS, pour les erreurs communes, les protocoles de transmission, pour un démarrage rapide avec le projet et une documentation sur la dernière version.
+
+# Commandes:
+
+- This will create the jars in the "target" directory of the workspace; this will also skip the unit tests :
+`mvn -Dmaven.test.skip=true install`
 
 - To package everything up in an assembly (tarball/zip):
 
@@ -50,6 +57,7 @@ This will create the jars in the "target" directory of the workspace; this will 
 `mvn eclipse:eclipse`
 
 - le projet est bien décrit dans le readme, on sait exactement ce qu'il fait .
+
 - Il manque peut-etre l'UML mais rien de bien méchant.
 
 
@@ -57,29 +65,29 @@ This will create the jars in the "target" directory of the workspace; this will 
 
 ## 2.1) Analyse du git :
 - Nombre de contributeurs de The Red5 Project : 14
-Luke Hubbard (luke@codegent.com)
-Dominick Accattato (daccattato@gmail.com)
-Chris Allen (mrchrisallen@gmail.com)
-Joachim Bauch (jojo@struktur.de)
-Mick Herres (mickherres@hotmail.com)
-John Grden (johng@acmewebworks.com)
-Grant Davies (grant@bluetube.com)
-Steven Elliott (steven.s.elliott@gmail.com)
-Jokul Tian (tianxuefeng@gmail.com)
-Steven Gong (steven.gong@gmail.com)
-Paul Gregoire (mondain@gmail.com)
-Michael Klishin (michael.s.klishin@gmail.com)
-Thijs Triemstra (info@collab.nl)
-Dan Rossi (electroteque@gmail.com)
-Anton Lebedevich (mabrek@gmail.com)
-Art Clarke (aclarke@xuggle.com)
-Tiago Daniel Jacobs (tiago@imdt.com.br)
+	- Luke Hubbard (luke@codegent.com)
+	- Dominick Accattato (daccattato@gmail.com)
+	- Chris Allen (mrchrisallen@gmail.com)
+	- Joachim Bauch (jojo@struktur.de)
+	- Mick Herres (mickherres@hotmail.com)
+	- John Grden (johng@acmewebworks.com)
+	- Grant Davies (grant@bluetube.com)
+	- Steven Elliott (steven.s.elliott@gmail.com)
+	- Jokul Tian (tianxuefeng@gmail.com)
+	- Steven Gong (steven.gong@gmail.com)
+	- Paul Gregoire (mondain@gmail.com)
+	- Michael Klishin (michael.s.klishin@gmail.com)
+	- Thijs Triemstra (info@collab.nl)
+	- Dan Rossi (electroteque@gmail.com)
+	- Anton Lebedevich (mabrek@gmail.com)
+	- Art Clarke (aclarke@xuggle.com)
+	- Tiago Daniel Jacobs (tiago@imdt.com.br)
 
-- Sponsor du projet :  `ko-fi.com/mondain`
+- Sponsor du projet : Le projet ne possède aucun sponsor (ko-fi n'étant pas concidéré comme un sponsor)
 
-- Nombre de commits total : 615
+- Nombre de commits total : 622 (15/02/2024)
 
-- Issues : 35
+- Issues : 36 (15/02/2024)
 
 - Pull-Request : 5
 
@@ -89,17 +97,17 @@ Tiago Daniel Jacobs (tiago@imdt.com.br)
 un site spécial pour que tout le monde puisse corriger les bugs en open source.
 
 
-- Le projet est toujours actif à l'heure d'aujourd'hui,le dernier commit date de 3 semaines, pour un porjet de cette envergure on peut dire qu'il est assez bien maintenu.
+- Le projet est toujours actif à l'heure d'aujourd'hui,le dernier commit date d'une semaine, pour un projet de cette envergure on peut dire qu'il est assez bien maintenu.
 
 
 
 - Au total il y a six branches distinctes,
-master : la branche par défaut
-bug/R5SI-786
-dependabot/maven/org.springframework-spring-web-6.0.0
-stable-release
-epic/GROGU
-circleci-project-setup
+	- master : la branche par défaut
+	- bug/R5SI-786
+	- dependabot/maven/org.springframework-spring-web-6.0.0
+	- stable-release
+	- epic/GROGU
+	- circleci-project-setup
 
 
 
@@ -108,7 +116,8 @@ circleci-project-setup
 
 ## 3.1) Utilisation de bibliothèques extérieures :
 
-le nombre de bibliothèques extérieures référencées : 46 bibliothéques externes et la plus part sont des bibliothèques maven-org, maven-junit, et maven-common.
+le nombre de bibliothèques extérieures référencées : 46 bibliothéques externes dans un dossier a part répértorié et la plus part sont des bibliothèques maven-org, maven-junit, et maven-common.
+sinon en tout en comptant celles dans les différents packages et dossiers , le projet contient 102 bibliothèques exterieures au total.
 
 la différence entre les bibliothèques référencées et celles utilisées :
 
@@ -121,11 +130,12 @@ le nombre de paquetages : il y a 6 packages principaux
 
 les liens entre les paquetages :
 
-les noms des paquetages : client , on peut comprendre que c'est le package qui gère les clients
-server : le server de sockets 
-server- common : pas très évident à deviner à quoi sert ce package
-io : les sockets et les controllers
-service  et parent
+les noms des paquetages : 
+- client , on peut comprendre que c'est le package qui gère les clients
+- server : le server de sockets 
+- server- common : pas très évident à deviner à quoi sert ce package
+- io : les sockets et les controllers
+- service  et servlet
 
 
 
@@ -145,6 +155,7 @@ particulier :
 ## 3.4) Organisation des classes :
 
 la hiérarchie des classes :
+![bl](./assets/package-dependencies.png)
 
 la profondeur de l’arbre d’héritage (DIT ) :
 
@@ -163,12 +174,12 @@ la cohésion des classes au sein d’un paquetage en particulier :
 ## 4.1) Tests :
 
 le nombre de tests : il est intéressant de remarquer que  dans le projet on nous dit de skip les tests, et de ce fait on a 0 tests qui passent alors qu'ils ont bel et bien fait des tests !
-Red5 ............................................... SUCCESS [  0.009 s]
-[INFO] Red5 :: IO ......................................... SUCCESS [  8.696 s]
-[INFO] Red5 :: Server Common .............................. SUCCESS [  5.060 s]
-[INFO] Red5 :: Service .................................... SUCCESS [  0.290 s]
-[INFO] Red5 :: Server ..................................... FAILURE [  1.069 s]
-[INFO] Red5 :: Client ..................................... SKIPPED
+	- Red5 ............................................... SUCCESS [  0.009 s]
+	- [INFO] Red5 :: IO ......................................... SUCCESS [  8.696 s]
+	- [INFO] Red5 :: Server Common .............................. SUCCESS [  5.060 s]
+	-[INFO] Red5 :: Service .................................... SUCCESS [  0.290 s]
+	- [INFO] Red5 :: Server ..................................... FAILURE [  1.069 s]
+	- [INFO] Red5 :: Client ..................................... SKIPPED
  on a les tests de IO, Server Common, Service qui passent, contrairement à ceux de Server qui échouent (c'est d'ailleurs normal car dans le dossier Server il n' y a quasiment aucun test),
  et concernant le dossier Client on ils ont été skip car dans les tests ils ont mis une variable pour expressement skip les tests.
 
@@ -181,6 +192,7 @@ le type de tests : unitaires
 
 les tests passent : on nous a dit de skip, mais la majorité des tests passent bien oui
 concernant les commentaires on avait remarqué que plein de tests ont été commentés ( probablement car ils ne passaient pas)
+le seul qui ne passe pas est : testAttributeBlastingWithPrimitive.
 
 
 nombre de bugs : 230 ! c'est énorme, mais pour un projet pareil je pense que c'est cohérent,
@@ -201,6 +213,7 @@ pertinent :
 
 
 les parties sans commentaires :
+les tests et des parties de codes sur les codecs
 
 
 
@@ -216,6 +229,9 @@ les appels à du code déprécié :
 ## 4.4) Duplication du code :
  
 le code dupliqué : 4% de code dupliqué, plutot pas mal, on a 57k de lignes de code dupliquées. et 161 blocs dupliqués, on aurait facilement pu améliorer ça.
+![Schéma de la duplication de code](./assets/duplications-overview.png)
+
+On peut voir que la grande majorité du code dupliqué est lié aux formats audio et aux codecs audios. Par exemple les 2 classes contenant le plus de code dupliqué sont `/io/m4a/impl/M4AReader.java` et `io/mp4/impl/MP4Reader.java` qui font quasiment .
  
 ## 4.5) God Classes :
 
