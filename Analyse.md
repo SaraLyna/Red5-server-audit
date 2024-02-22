@@ -46,17 +46,15 @@ Le wiki contient 23 catégories avec chacune des sous parties. Il y a des partie
 `mvn -Dmaven.test.skip=true install`
 
 - To package everything up in an assembly (tarball/zip):
-
 `mvn -Dmaven.test.skip=true clean package -P assemble`
 
 - To build a milestone tarball:
-
 `mvn -Dmilestone.version=1.0.7-M1 clean package -Pmilestone`
 
 - Create the eclipse project files, execute this within red5-server directory.
 `mvn eclipse:eclipse`
 
-- le projet est bien décrit dans le readme, on sait exactement ce qu'il fait .
+- le projet est bien décrit dans le Readme, on sait exactement ce qu'il fait .
 
 - Il manque peut-etre l'UML mais rien de bien méchant.
 
@@ -83,7 +81,7 @@ Le wiki contient 23 catégories avec chacune des sous parties. Il y a des partie
 	- Art Clarke (aclarke@xuggle.com)
 	- Tiago Daniel Jacobs (tiago@imdt.com.br)
 
-- Sponsor du projet : Le projet ne possède aucun sponsor (ko-fi n'étant pas concidéré comme un sponsor)
+- Sponsor du projet : Le projet ne possède aucun sponsor (`ko-fi.com/mondain` n'étant pas concidéré comme un sponsor)
 
 - Nombre de commits total : 622 (15/02/2024)
 
