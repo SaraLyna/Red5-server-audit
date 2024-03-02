@@ -107,6 +107,8 @@ un site spécial pour que tout le monde puisse corriger les bugs en open source.
 
 ### 3.1 - Utilisation de bibliothèques extérieures
 
+Le projet possède 
+
 - le nombre de bibliothèques extérieures référencées : 46 bibliothéques externes dans un dossier a part répértorié et la plus part sont des bibliothèques maven-org, maven-junit, et maven-common.
 sinon en tout en comptant celles dans les différents packages et dossiers , le projet contient 102 bibliothèques exterieures au total.
 
@@ -119,13 +121,19 @@ sinon en tout en comptant celles dans les différents packages et dossiers , le 
 - le nombre de paquetages : il y a 6 packages principaux
 
 - les liens entre les paquetages :
+par exemple pour server- common, ce package contient les classes communes aux serveurs Red5
+Le code contenu dedans est commun aux projets red5-server et red5-client. Ce code vise à éliminer les frais généraux du contenu du serveur dans le projet client.
+concernant IO, Il s'agit de la bibliothèque de base pour les entrées/sorties au sein des projets Red5 (serveur et client).
 
 - les noms des paquetages :
-  - client , on peut comprendre que c'est le package qui gère les clients
+  - client , on peut comprendre que c'est le package qui gère les clients , et d'ailleurs Les versions automatisées peuvent être trouvées ici : https://builds.apache.org/view/M-R/view/OpenMeetings/job/Red5-client/
   - server : le server de sockets
-  - server- common : pas très évident à deviner à quoi sert ce package
-  - io : les sockets et les controllers
-  - service  et servlet
+  - server- common : code commun aux servers et client.
+  - io : les sockets et les controllers, et d'ailleurs Il s'agit de la bibliothèque de base pour les entrées/sorties au sein des projets Red5 (serveur et client).
+  La liste des utilisateurs peut être trouvée ici : https://groups.google.com/forum/#!forum/red5interest
+  Les versions automatisées peuvent être trouvées ici : https://builds.apache.org/view/M-R/view/OpenMeetings/job/Red5-io/ 
+  - service
+  - servlet
 
 ### 3.3 - Répartition des classes dans les paquetages
 
@@ -135,6 +143,8 @@ sinon en tout en comptant celles dans les différents packages et dossiers , le 
 
 - le couplage et la cohésion au sein des paquetages de quelques uns en
 particulier :
+![bl](./assets/class-coupling.png)
+
 
 ### 3.4 - Organisation des classes
 
@@ -154,12 +164,12 @@ particulier :
 ### 4.1 - Tests
 
 - le nombre de tests : il est intéressant de remarquer que  dans le projet on nous dit de skip les tests, et de ce fait on a 0 tests qui passent alors qu'ils ont bel et bien fait des tests !
- 	- Red5 ............................................... SUCCESS [  0.009 s]
- 	- [INFO] Red5 :: IO ......................................... SUCCESS [  8.696 s]
- 	- [INFO] Red5 :: Server Common .............................. SUCCESS [  5.060 s]
- -[INFO] Red5 :: Service .................................... SUCCESS [  0.290 s]
- 	- [INFO] Red5 :: Server ..................................... FAILURE [  1.069 s]
- 	- [INFO] Red5 :: Client ..................................... SKIPPED
+- Red5 .............................................. ........SUCCESS [  0.009 s]
+- [INFO] Red5 :: IO ......................................... SUCCESS [  8.696 s]
+- [INFO] Red5 :: Server Common .............................. SUCCESS [  5.060 s]
+- [INFO] Red5 :: Service .................................... SUCCESS [  0.290 s]
+- [INFO] Red5 :: Server ..................................... FAILURE [  1.069 s]
+- [INFO] Red5 :: Client ..................................... SKIPPED
 
 - on a les tests de IO, Server Common, Service qui passent, contrairement à ceux de Server qui échouent (c'est d'ailleurs normal car dans le dossier Server il n' y a quasiment aucun test),
 - et concernant le dossier Client on ils ont été skip car dans les tests ils ont mis une variable pour expressement skip les tests.
