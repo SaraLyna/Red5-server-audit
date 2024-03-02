@@ -11,9 +11,9 @@
 Pour cette version du projet on s'intéressera à la toute dernière mise à jour datant du mois de février 2024.
 - Analyse du projet Red5-Server :  `https://github.com/Red5/red5-server`
 
-## 1 - Présentation Globale du projet
+## 1 - Présentation Globale du projet [Sara]
 
-### 1.1 - Utilité du projet
+### 1.1 - Utilité du projet 
 
 - Ce dépot contient le code source du projet Red5-Server . Il s'agit de :
 Red5 est un serveur Flash gratuit et libre qui reprend les fonctionnalités de Flash Media Server de Adobe.
@@ -55,7 +55,7 @@ Le wiki contient 23 catégories avec chacune des sous parties. Il y a des partie
 
 - Il manque peut-etre l'UML mais rien de bien méchant.
 
-## 2 - Historique du logiciel
+## 2 - Historique du logiciel [Sara]
 
 ### 2.1 - Analyse du git
 
@@ -118,7 +118,7 @@ sinon en tout en comptant celles dans les différents packages et dossiers , le 
 
 - les bibliothèques réellement utilisées :
 
-### 3.2 - Organisation en paquetages
+### 3.2 - Organisation en paquetages [Sara]
 
 - Le nombre de paquetages : il y a 6 packages principaux
 Les différents packages ont chacun un role principal dans la création de ce projet, 
@@ -144,7 +144,7 @@ Ce code vise à éliminer les frais généraux du contenu du serveur dans le pro
   - service :
   - servlet :
 
-### 3.3 - Répartition des classes dans les paquetages
+### 3.3 - Répartition des classes dans les paquetages [Sara]
 
 - Le nombre de classes par paquetage :
 
@@ -170,7 +170,7 @@ particulier :
 
 ## 4 - Analyse approfondie
 
-### 4.1 - Tests
+### 4.1 - Tests [Sara]
 
 - Le nombre de tests : 
 Il est intéressant de remarquer que  dans le projet on nous dit de skip les tests, et de ce fait on a 0 tests qui passent alors qu'ils ont bel et bien fait des tests !
@@ -202,7 +202,7 @@ depuis le temps c'est vrai qu'ils auraient pu corriger les bugs.
 
 - Niveau sécurité ça laisse à désirer, on a une note de E niveau sécurité.
 
-### 4.2 - Commentaires
+### 4.2 - Commentaires [Sara]
 
 - le nombre de lignes de commentaires : concernant les commentaires on avait remarqué que plein de tests ont été commentés ( probablement car ils ne passaient pas),
 
@@ -212,7 +212,7 @@ pertinent :
 - les parties sans commentaires :
 les tests et des parties de codes sur les codecs
 
-### 4.3 - Dépréciation
+### 4.3 - Dépréciation [Sara]
 
 - les bouts de code dépréciés (classes, méthodes) :
 
@@ -251,15 +251,15 @@ médiane) :
 
 ## 5 - Nettoyage de Code et Code smells
 
-### 5.1 - Règles de nommage
+### 5.1 - Règles de nommage [Sara]
 
 le nom des packages est bien choisi, simple et efficace , on comprend qu'il y a un dossier Server qui gère les servers, un dossier client, un dossier IO pour les sockets, et Service pour les services que propose le logiciel.
 
 ### 5.2 - Nombre magique
 
-### 5.3 - Structure du code
+### 5.3 - Structure du code 
 
-### 5.4 - Code mort
+### 5.4 - Code mort [Sara]
 
 - Code Smells : 3000 !
 
@@ -267,7 +267,7 @@ le nom des packages est bien choisi, simple et efficace , on comprend qu'il y a 
 
 ## Partie 2 : Amélioration du projet
 
-## 6 - Petites modifications
+## 6 - Petites modifications [Sara]
 
 - Coder quelques tests en plus histoire d'avoir plus de couverture.
 - Décommenter les tests et essayer de les débuger.
