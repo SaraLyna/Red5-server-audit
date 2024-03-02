@@ -8,7 +8,7 @@
 ## Partie 1 : Audit du projet
 
 ## Contexte
-
+Pour cette version du projet on s'intéressera à la toute dernière mise à jour datant du mois de février 2024.
 - Analyse du projet Red5-Server :  `https://github.com/Red5/red5-server`
 
 ## 1 - Présentation Globale du projet
@@ -22,13 +22,13 @@ Red5 est un serveur Flash gratuit et libre qui reprend les fonctionnalités de F
 
 - `english version`
 Red5 is an Open Source Flash Server written in Java that supports:
-- Streaming Video (FLV, F4V, MP4, 3GP)
-- Streaming Audio (MP3, F4A, M4A, AAC)
-- Recording Client Streams (FLV and AVC+AAC in FLV container)
-- Shared Objects
-- Live Stream Publishing
-- Remoting
-- Protocols: RTMP, RTMPT, RTMPS, and RTMPE
+  - Streaming Video (FLV, F4V, MP4, 3GP)
+  - Streaming Audio (MP3, F4A, M4A, AAC)
+  - Recording Client Streams (FLV and AVC+AAC in FLV container)
+  - Shared Objects
+  - Live Stream Publishing
+  - Remoting
+  - Protocols: RTMP, RTMPT, RTMPS, and RTMPE
 
 ### 1.2 - Description du projet
 
@@ -51,7 +51,7 @@ Le wiki contient 23 catégories avec chacune des sous parties. Il y a des partie
 - Create the eclipse project files, execute this within red5-server directory.
 `mvn eclipse:eclipse`
 
-- le projet est bien décrit dans le readme, on sait exactement ce qu'il fait .
+- le projet est bien décrit dans le [readme](https://github.com/Red5/red5-server/blob/master/README.md), on sait exactement ce qu'il fait .
 
 - Il manque peut-etre l'UML mais rien de bien méchant.
 
@@ -81,27 +81,29 @@ Le wiki contient 23 catégories avec chacune des sous parties. Il y a des partie
 - Sponsor du projet : Le projet ne possède aucun sponsor (`ko-fi.com/mondain` n'étant pas concidéré comme un sponsor)
 
 - Nombre de commits total : 622 (15/02/2024)
-![bl](./assets/commit.png)
+![Nombre de commits total du projet](./assets/commit.png)
 
 - Issues : 36 (15/02/2024)
 
 - Pull-Request : 5
-![bl](./assets/pull_request.png)
+![les pull-request du projet](./assets/pull_request.png)
 
 - on peut remarquer que `ko-fi.com/mondain` est bel et bien le contributeur principal,
-![bl](./assets/contributeurs2.png)
+![Contributeurs principaux](./assets/contributeurs2.png)
 un site spécial pour que tout le monde puisse corriger les bugs en open source.
 
 - Le projet est toujours actif à l'heure d'aujourd'hui,le dernier commit date d'une semaine, pour un projet de cette envergure on peut dire qu'il est assez bien maintenu.
 
-- Au total il y a six branches distinctes,
+- Au total il y a huit branches distinctes,
   - master : la branche par défaut
+  - snmp : branche ajoutée récemment (une semaine)
+  - tc10migrate : branche récente (2 semaines)
   - bug/R5SI-786
   - dependabot/maven/org.springframework-spring-web-6.0.0
   - stable-release
   - epic/GROGU
   - circleci-project-setup
-  ![bl](./assets/branches.png)
+  ![Les différentes branches du projet](./assets/branches.png)
 
 ## 3 - Architecture logicielle
 
@@ -118,75 +120,87 @@ sinon en tout en comptant celles dans les différents packages et dossiers , le 
 
 ### 3.2 - Organisation en paquetages
 
-- le nombre de paquetages : il y a 6 packages principaux
+- Le nombre de paquetages : il y a 6 packages principaux
+Les différents packages ont chacun un role principal dans la création de ce projet, 
+ils gèrent tout du début jusqu'à la fin, du server aux clients en passant par les différents 
+services qu'ils proposent.
 
-- les liens entre les paquetages :
-par exemple pour server- common, ce package contient les classes communes aux serveurs Red5
-Le code contenu dedans est commun aux projets red5-server et red5-client. Ce code vise à éliminer les frais généraux du contenu du serveur dans le projet client.
-concernant IO, Il s'agit de la bibliothèque de base pour les entrées/sorties au sein des projets Red5 (serveur et client).
+- Les liens entre les paquetages :
+  - Par exemple pour server- common, ce package contient les classes communes aux serveurs Red5, le code contenu dedans est commun aux projets red5-server et red5-client.
+Ce code vise à éliminer les frais généraux du contenu du serveur dans le projet client.
+  - Concernant IO, il s'agit de la bibliothèque de base pour les entrées/sorties au sein des projets Red5 (serveur et client).
+  - Client,
+  - Server,
+  - Service,
+  - Servlet,
 
-- les noms des paquetages :
-  - client , on peut comprendre que c'est le package qui gère les clients , et d'ailleurs Les versions automatisées peuvent être trouvées ici : https://builds.apache.org/view/M-R/view/OpenMeetings/job/Red5-client/
+- Les noms des paquetages :
+  - client , on peut comprendre que c'est le package qui gère les clients , d'ailleurs Les versions automatisées peuvent être trouvées ici : https://builds.apache.org/view/M-R/view/OpenMeetings/job/Red5-client/
   - server : le server de sockets
-  - server- common : code commun aux servers et client.
-  - io : les sockets et les controllers, et d'ailleurs Il s'agit de la bibliothèque de base pour les entrées/sorties au sein des projets Red5 (serveur et client).
+  - server-common : code commun au server et client.
+  - io : les sockets et les controllers, et d'ailleurs il s'agit de la bibliothèque de base pour les entrées/sorties au sein des projets Red5 (serveur et client).
   La liste des utilisateurs peut être trouvée ici : https://groups.google.com/forum/#!forum/red5interest
   Les versions automatisées peuvent être trouvées ici : https://builds.apache.org/view/M-R/view/OpenMeetings/job/Red5-io/ 
-  - service
-  - servlet
+  - service :
+  - servlet :
 
 ### 3.3 - Répartition des classes dans les paquetages
 
-- le nombre de classes par paquetage :
+- Le nombre de classes par paquetage :
 
-- la répartition des classes dans les différents paquetages :
+- La répartition des classes dans les différents paquetages :
 
-- le couplage et la cohésion au sein des paquetages de quelques uns en
+- Le couplage et la cohésion au sein des paquetages de quelques uns en
 particulier :
-![bl](./assets/class-coupling.png)
+![Couplage des classes](./assets/class-coupling.png)
 
 
 ### 3.4 - Organisation des classes
 
-- la hiérarchie des classes :
-![bl](./assets/package-dependencies.png)
+- La hiérarchie des classes :
+![La dépendence entre les différentes classes](./assets/package-dependencies.png)
 
-- la profondeur de l’arbre d’héritage (DIT ) :
+- La profondeur de l’arbre d’héritage (DIT ) :
 
-- le nombre d’enfants par classes (min, max ou moyenne) (NOC ) :
+- Le nombre d’enfants par classes (min, max ou moyenne) (NOC ) :
 
-- la stabilité des classes en général ou de quelques unes en particulier :
+- La stabilité des classes en général ou de quelques unes en particulier :
 
-- la cohésion des classes au sein d’un paquetage en particulier :
+- La cohésion des classes au sein d’un paquetage en particulier :
 
 ## 4 - Analyse approfondie
 
 ### 4.1 - Tests
 
-- le nombre de tests : il est intéressant de remarquer que  dans le projet on nous dit de skip les tests, et de ce fait on a 0 tests qui passent alors qu'ils ont bel et bien fait des tests !
-- Red5 .............................................. ........SUCCESS [  0.009 s]
-- [INFO] Red5 :: IO ......................................... SUCCESS [  8.696 s]
-- [INFO] Red5 :: Server Common .............................. SUCCESS [  5.060 s]
-- [INFO] Red5 :: Service .................................... SUCCESS [  0.290 s]
-- [INFO] Red5 :: Server ..................................... FAILURE [  1.069 s]
-- [INFO] Red5 :: Client ..................................... SKIPPED
+- Le nombre de tests : 
+Il est intéressant de remarquer que  dans le projet on nous dit de skip les tests, et de ce fait on a 0 tests qui passent alors qu'ils ont bel et bien fait des tests !
+en compilant et exécutant le projet on obtient : 
+  - Red5 .............................................. ........SUCCESS [  0.009 s]
+  - [INFO] Red5 :: IO ......................................... SUCCESS [  8.696 s]
+  - [INFO] Red5 :: Server Common .............................. SUCCESS [  5.060 s]
+  - [INFO] Red5 :: Service .................................... SUCCESS [  0.290 s]
+  - [INFO] Red5 :: Server ..................................... FAILURE [  1.069 s]
+  - [INFO] Red5 :: Client ..................................... SKIPPED
 
-- on a les tests de IO, Server Common, Service qui passent, contrairement à ceux de Server qui échouent (c'est d'ailleurs normal car dans le dossier Server il n' y a quasiment aucun test),
-- et concernant le dossier Client on ils ont été skip car dans les tests ils ont mis une variable pour expressement skip les tests.
+- On a les tests de IO, Server Common et Service qui passent, contrairement à ceux de Server qui échouent (c'est d'ailleurs normal car dans le dossier Server il n'y a quasiment aucun test),
+- Concernant le dossier Client ils ont été skip car dans les tests ils ont mis une variable pour expressement skip les tests.
 
-- la couverture de tests : couverture de tests très faible (0-5%), il y a des tests quasiment vides et donc on optera plutot pour l'analyse du code que l'analyse des tests en profondeur ( car il n'y en a quasiment pas !! ).
+- La couverture de tests :
+Couverture de tests très faible (0-5%), il y a des tests quasiment vides et donc on optera plutot pour l'analyse du code que l'analyse des tests en profondeur ( car il n'y en a quasiment pas !! )
 sur 31k lignes de code.
 
-- le type de tests : unitaires
+- Le type de tests : unitaires.
 
-- les tests passent : on nous a dit de skip, mais la majorité des tests passent bien oui
-concernant les commentaires on avait remarqué que plein de tests ont été commentés ( probablement car ils ne passaient pas)
+- Les tests passent : 
+On nous a dit de skip, mais la majorité des tests passent bien oui,
+concernant les commentaires on avait remarqué que plein de tests ont été commentés ( probablement car ils ne passaient pas),
 le seul qui ne passe pas est : testAttributeBlastingWithPrimitive.
 
-- nombre de bugs : 230 ! c'est énorme, mais pour un projet pareil je pense que c'est cohérent,
+- Nombre de bugs : 230 ! 
+C'est énorme, mais pour un projet pareil je pense que c'est cohérent,
 depuis le temps c'est vrai qu'ils auraient pu corriger les bugs.
 
-- et niveau sécurité ça laisse à désirer, on a une note de E niveau sécurité.
+- Niveau sécurité ça laisse à désirer, on a une note de E niveau sécurité.
 
 ### 4.2 - Commentaires
 
