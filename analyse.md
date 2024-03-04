@@ -111,14 +111,91 @@ un site spécial pour que tout le monde puisse corriger les bugs en open source.
 
 ### 3.1 - Utilisation de bibliothèques extérieures
 
-Le projet possède:
+Le projet possède 102 packages exterieur parmi les 117 packages référencés dans les différents `pom.xml`. Cela représente environ 358 classes externe utilisées par les différentes parties du projet. On peut remarquer que seulement 15 import locaux sont fait dans les 6 packages du projet.
 
-- le nombre de bibliothèques extérieures référencées : 46 bibliothéques externes dans un dossier a part répértorié et la plus part sont des bibliothèques maven-org, maven-junit, et maven-common.
-sinon en tout en comptant celles dans les différents packages et dossiers , le projet contient 102 bibliothèques exterieures au total.
+<!-- - le nombre de bibliothèques extérieures référencées : 46 bibliothéques externes dans un dossier a part répértorié et la plus part sont des bibliothèques maven-org, maven-junit, et maven-common.
+sinon en tout en comptant celles dans les différents packages et dossiers , le projet contient 102 bibliothèques exterieures au total. -->
 
-- la différence entre les bibliothèques référencées et celles utilisées :
+Parmi les packages, il y a 24 dépencances utilisées mais non déclaré et 24 dépendances déclarées mais non utilisées.
 
-- les bibliothèques réellement utilisées :
+- red5-parent
+  - Aucune dépendance non utilisée
+
+- red5-io
+  - Used undeclared dependencies:
+    - `org.springframework:spring-beans`
+  - Unused declared dependencies found:
+    - `ch.qos.logback:logback-classic:jar:1.4.14:compile`
+    - `org.apache.mina:mina-integration-beans:bundle:2.0.23:compile`
+    - `org.springframework:spring-context-support:jar:5.3.31:compile`
+    - `commons-io:commons-io:jar:2.11.0:compile`
+    - `org.springframework:spring-web:jar:5.3.31:compile`
+    - `junit:junit:jar:5.0-SNAPSHOT:test`
+    - `org.hamcrest:hamcrest-junit:jar:2.0.0.0:test`
+
+- red5-server-common
+  - Used undeclared dependencies:
+    - `ch.qos.logback:logback-core:jar:1.4.14:compile`
+    - `org.springframework:spring-beans:jar:5.3.31:compile`
+    - `org.springframework:spring-context:jar:5.3.31:compile`
+    - `org.springframework:spring-core:jar:5.3.31:compile`
+    - `org.apache.httpcomponents:httpcore:jar:4.4.16:compile`
+  - Unused declared dependencies found:
+    - `org.springframework:spring-test:jar:5.3.31:test`
+    - `org.springframework:spring-context-support:jar:5.3.31:compile`
+    - `junit:junit:jar:5.0-SNAPSHOT:test`
+
+- red5-service
+  - Used undeclared dependencies:
+    - Aucune
+  - Unused declared dependencies found:
+    - `org.slf4j:slf4j-api:jar:2.0.11:compile`
+    - `ch.qos.logback:logback-core:jar:1.4.14:compile`
+
+- red5-server
+  - Used undeclared dependencies
+    - `ch.qos.logback:logback-core:jar:1.4.14:compile`
+    - `commons-beanutils:commons-beanutils:jar:1.9.4:compile`
+    - `org.springframework:spring-beans:jar:5.3.31:compile`
+    - `org.apache.tomcat:tomcat-websocket-api:jar:8.5.95:provided`
+    - `org.bouncycastle:bcprov-jdk15on:jar:1.62:compile`
+    - `org.springframework:spring-web:jar:5.3.31:compile`
+    - `commons-codec:commons-codec:jar:1.13:compile`
+    - `org.apache.mina:mina-core:bundle:2.0.23:compile`
+    - `org.apache.commons:commons-lang3:jar:3.11:compile`
+  - Unused declared dependencies found:
+    - `org.red5:red5-service:jar:1.3.27:provided`
+    - `org.red5:red5-service:tar.gz:daemon:1.3.27:runtime`
+    - `org.slf4j:jcl-over-slf4j:jar:2.0.11:compile`
+    - `org.slf4j:log4j-over-slf4j:jar:2.0.11:compile`
+    - `org.springframework:spring-context-support:jar:5.3.31:compile`
+    - `org.springframework:spring-webmvc:jar:5.3.31:compile`
+    - `org.apache.mina:mina-integration-beans:jar:2.0.23:compile`
+    - `net.sf.ehcache:ehcache:jar:2.10.6:compile`
+    - `org.mp4parser:isoparser:jar:1.9.39:compile`
+    - `org.apache.tomcat.embed:tomcat-embed-jasper:jar:8.5.95:provided`
+  - Non-test scoped test only dependencies found:
+    - `commons-beanutils:commons-beanutils:jar:1.9.4:compile`
+
+- red5-client
+  - Used undeclared dependencies:
+    - `ch.qos.logback:logback-core:jar:1.4.14:compile`
+    - `org.slf4j:slf4j-api:jar:2.0.11:compile`
+    - `org.apache.httpcomponents:httpclient:jar:4.5.14:compile`
+    - `org.springframework:spring-context:jar:5.3.31:compile`
+    - `org.springframework:spring-core:jar:5.3.31:compile`
+    - `org.red5:red5-io:jar:1.3.27:compile`
+    - `org.apache.httpcomponents:httpcore:jar:4.4.16:compile`
+    - `org.bouncycastle:bcprov-jdk15on:jar:1.62:compile`
+    - `commons-codec:commons-codec:jar:1.13:compile`
+  - Unused declared dependencies found:
+    - `junit:junit:jar:5.0-SNAPSHOT:test`
+    - `net.sf.ehcache:ehcache:jar:2.10.6:runtime`
+
+On peut constater des dépendances non déclarées sont présentes dans certains modules, ce qui peut poser des problèmes de maintenance et de compatibilité à long terme. Il y a aussi la présence de  dépendances déclarées sont présentes mais non utilisées dans plusieurs modules, ce qui donne potentiellement des opportunités d'optimisation et de nettoyage du code.
+Parmi les dépencdances qui reviennent souvent dans la liste de celles inutilisées on remarque que `junit` apparait 3 fois, ce qui laisse penser que les tests ne sont pas encore écrits mais prévus.
+
+Les bibliothèques réellement utilisées ne nous apprennent pas plus d'information sur le projet, elles correspondent à la ddescription des fonctionnalitées du projet. Il y a néanmoins l'utilisation de plusieurs bibliothèques pour des fonctionnalités similaires, telles que les bibliothèques de log `slf4j-api` et `logback-classic,` qui semble être justifiée, car elles offrent chacune des fonctionnalités complémentaires ou des intégrations avec d'autres outils ou frameworks.
 
 ### 3.2 - Organisation en paquetages [Sara]
 
