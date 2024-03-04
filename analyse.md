@@ -8,12 +8,14 @@
 ## Partie 1 : Audit du projet
 
 ## Contexte
+
 Pour cette version du projet on s'intéressera à la toute dernière mise à jour datant du mois de février 2024.
+
 - Analyse du projet Red5-Server :  `https://github.com/Red5/red5-server`
 
 ## 1 - Présentation Globale du projet [Sara]
 
-### 1.1 - Utilité du projet 
+### 1.1 - Utilité du projet
 
 - Ce dépot contient le code source du projet Red5-Server . Il s'agit de :
 Red5 est un serveur Flash gratuit et libre qui reprend les fonctionnalités de Flash Media Server de Adobe.
@@ -109,7 +111,7 @@ un site spécial pour que tout le monde puisse corriger les bugs en open source.
 
 ### 3.1 - Utilisation de bibliothèques extérieures
 
-Le projet possède 
+Le projet possède:
 
 - le nombre de bibliothèques extérieures référencées : 46 bibliothéques externes dans un dossier a part répértorié et la plus part sont des bibliothèques maven-org, maven-junit, et maven-common.
 sinon en tout en comptant celles dans les différents packages et dossiers , le projet contient 102 bibliothèques exterieures au total.
@@ -121,8 +123,8 @@ sinon en tout en comptant celles dans les différents packages et dossiers , le 
 ### 3.2 - Organisation en paquetages [Sara]
 
 - Le nombre de paquetages : il y a 6 packages principaux
-Les différents packages ont chacun un role principal dans la création de ce projet, 
-ils gèrent tout du début jusqu'à la fin, du server aux clients en passant par les différents 
+Les différents packages ont chacun un role principal dans la création de ce projet,
+ils gèrent tout du début jusqu'à la fin, du server aux clients en passant par les différents
 services qu'ils proposent.
 
 - Les liens entre les paquetages :
@@ -136,12 +138,12 @@ Il peut être utilisé par Server pour accéder à des fonctionnalités communes
   - Servlet, peut interagir avec Server et Service pour fournir des fonctionnalités Web au serveur Red5, telles que des interfaces utilisateur ou des fonctionnalités d'administration à distance.
 
 - Les noms des paquetages :
-  - client : on peut comprendre que c'est le package qui gère les clients du serveur Red5 ,il est responsable de la communication entre le serveur et les clients, ainsi que de la gestion des différentes versions automatisées qui peuvent être trouvées à l'adresse  : https://builds.apache.org/view/M-R/view/OpenMeetings/job/Red5-client/
+  - client : on peut comprendre que c'est le package qui gère les clients du serveur Red5 ,il est responsable de la communication entre le serveur et les clients, ainsi que de la gestion des différentes versions automatisées qui peuvent être trouvées à l'adresse: <https://builds.apache.org/view/M-R/view/OpenMeetings/job/Red5-client/>
   - server : ce package est dédié à la gestion des serveurs de sockets. Il contient probablement le cœur du serveur Red5, gérant les connexions entrantes, les flux de données et les différentes fonctionnalités offertes par le serveur.
   - server-common : contient du code commun aux serveurs Red5 et aux clients. Son objectif principal est de réduire les frais généraux du contenu du serveur dans le projet client. Il fournit probablement des fonctionnalités partagées nécessaires à la fois aux serveurs et aux clients.
   - io : ce package est crucial pour les entrées/sorties au sein des projets Red5 (serveur et client). Il contient les sockets et les contrôleurs nécessaires à la communication entre les différents composants du serveur Red5, ainsi qu'à la gestion des flux de données.
-  La liste des utilisateurs peut être trouvée ici : https://groups.google.com/forum/#!forum/red5interest
-  Les versions automatisées peuvent être trouvées ici : https://builds.apache.org/view/M-R/view/OpenMeetings/job/Red5-io/ 
+  La liste des utilisateurs peut être trouvée ici: <https://groups.google.com/forum/#!forum/red5interest>
+  Les versions automatisées peuvent être trouvées ici: <https://builds.apache.org/view/M-R/view/OpenMeetings/job/Red5-io/>
   - service : ce package gère les différents services proposés par le serveur Red5. Il est responsable de la mise en œuvre des fonctionnalités telles que le streaming vidéo et audio, l'enregistrement de flux client, la publication de flux en direct, etc.
   - servlet : ce package contient les servlets utilisés pour la gestion des requêtes HTTP. Il peut être utilisé pour les fonctionnalités Web du serveur Red5, telles que l'administration à distance ou les interfaces utilisateur.
 
@@ -157,7 +159,6 @@ L'organisation en paquetages du projet Red5-Server semble être bien structurée
 - Le couplage et la cohésion au sein des paquetages de quelques uns en
 particulier :
 ![Couplage des classes](./assets/class-coupling.png)
-
 
 ### 3.4 - Organisation des classes
 
@@ -176,13 +177,13 @@ particulier :
 
 ### 4.1 - Tests [Sara]
 
-- Le nombre de tests : 
+- Le nombre de tests:
 Il est intéressant de remarquer que  dans le projet on nous dit de skip les tests, et de ce fait on a 0 tests qui passent alors qu'ils ont bel et bien fait des tests !
-Il est crucial pour tout projet logiciel d'avoir une suite de tests robuste pour garantir le bon fonctionnement du code. 
-Dans le cas du projet Red5-Server, il noté que la commande pour exécuter les tests est configurée pour les ignorer (`mvn -Dmaven.test.skip=true`). 
+Il est crucial pour tout projet logiciel d'avoir une suite de tests robuste pour garantir le bon fonctionnement du code.
+Dans le cas du projet Red5-Server, il noté que la commande pour exécuter les tests est configurée pour les ignorer (`mvn -Dmaven.test.skip=true`).
 Cela signifie que les tests sont volontairement ignorés lors de la compilation et de l'exécution du projet. Par conséquent, aucun test unitaire n'est actuellement exécuté.
 Mais, en tentant tout de meme de les exécuter,
-en compilant et exécutant le projet on obtient : 
+en compilant et exécutant le projet on obtient:
   - Red5 .............................................. ........SUCCESS [  0.009 s]
   - [INFO] Red5 :: IO ......................................... SUCCESS [  8.696 s]
   - [INFO] Red5 :: Server Common .............................. SUCCESS [  5.060 s]
@@ -194,26 +195,26 @@ en compilant et exécutant le projet on obtient :
 - Concernant le dossier Client ils ont été skip car dans les tests ils ont mis une variable pour expressement skip les tests.
 
 - La couverture de tests :
-Couverture de tests très faible (0-5%), 
+Couverture de tests très faible (0-5%),
 puis les tests ont été ignorés (skip), il n'est pas vraiment possible de déterminer la couverture des tests,
 il y a des tests quasiment vides et donc on optera plutot pour l'analyse du code que l'analyse des tests en profondeur ( car il n'y en a quasiment pas !! ) sur 31k lignes de code.
 Ce qui est tout de meme dommage !
 
 - Le type de tests : unitaires, ils visent à tester des unités de code individuelles de manière isolée.
 
-- Les tests passent : 
+- Les tests passent:
 On nous a dit de skip, mais la majorité des tests passent bien oui,
 concernant les commentaires on avait remarqué que plein de tests ont été commentés ( probablement car ils ne passaient pas),ou bien ils peuvent tout simplement ne pas être à jour ou ne pas passer avec la version actuelle du code.
 le seul qui ne passe pas est : testAttributeBlastingWithPrimitive.
 
-- Nombre de bugs : le nombre total de bugs dans le projet est de 230 ! 
+- Nombre de bugs : le nombre total de bugs dans le projet est de 230 !
 C'est énorme, mais pour un projet pareil je pense que c'est cohérent,
 depuis le temps c'est vrai qu'ils auraient pu corriger les bugs.
 mais il est tout de meme nécessaire d'avoir une suite de tests solide pour détecter et corriger les bugs existants, ainsi que pour prévenir l'introduction de nouveaux bugs lors du développement de nouvelles fonctionnalités ou de modifications du code existant.
 
 - Niveau sécurité ça laisse à désirer, on a une note de E niveau sécurité.
 
-La gestion des tests dans le projet est insuffisante et pas du tout satisfaisante, 
+La gestion des tests dans le projet est insuffisante et pas du tout satisfaisante,
 des tests désactivés, ignorés, commentés,
 des tests manquants voire inexistants, ce qui peut compromettre la qualité et la fiabilité du logiciel final.
 Il faudrait améliorer la qualité des tests.
@@ -273,7 +274,7 @@ le nom des packages est bien choisi, simple et efficace , on comprend qu'il y a 
 
 ### 5.2 - Nombre magique
 
-### 5.3 - Structure du code 
+### 5.3 - Structure du code
 
 ### 5.4 - Code mort [Sara]
 
