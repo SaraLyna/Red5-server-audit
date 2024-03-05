@@ -199,7 +199,13 @@ Les bibliothèques réellement utilisées ne nous apprennent pas plus d'informat
 
 ### 3.2 - Organisation en paquetages [Sara]
 
-- Le nombre de paquetages : il y a 6 packages principaux
+- Le nombre de paquetages : il y a 6 packages principaux,
+   - red5-client
+   - red5-io
+   - red5-server
+   - red5-server-common
+   - red5-service
+   - red5-servlet
 Les différents packages ont chacun un role principal dans la création de ce projet,
 ils gèrent tout du début jusqu'à la fin, du server aux clients en passant par les différents
 services qu'ils proposent.
@@ -230,6 +236,12 @@ L'organisation en paquetages du projet Red5-Server semble être bien structurée
 ### 3.3 - Répartition des classes dans les paquetages [Sara]
 
 - Le nombre de classes par paquetage :
+   - red5-client
+   - red5-io
+   - red5-servlet
+   - red5-server
+   - red5-server-common
+   - red5-service
 
 - La répartition des classes dans les différents paquetages :
 
