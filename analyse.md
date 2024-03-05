@@ -239,7 +239,34 @@ particulier :
 
 ### 3.4 - Organisation des classes
 
-- La hiérarchie des classes :
+<!-- Peut être mettre ca au début de la partie 3 ? -->
+Tout d'abord afin de mieux comprendre les schémas qui vont suivre voici la légende des couleurs présentent.
+| ![caption](./assets/metrics_diagrams/caption.png) |
+|:--:|
+| *La signification des couleurs dans les diagrammes* |
+
+Voici deux définitions des métriques utilisées pour l'analyse de l'organisations des classes.
+
+Depth of Inheritance Tree (DIT):
+
+Attributs de qualité associés: `complexité`
+> La position de la classe dans l'arbre d'héritage. A une valeur 0 (zéro) pour les classes racine et non héritées. Pour l’héritage multiple, la métrique indique la longueur maximale. Classe plus profonde dans l'arbre d'héritage, hérite probablement. Il est donc plus difficile de prédire son comportement. Cette classe est également relativement complexe à développer, tester et maintenir.
+
+Number of Children (NOC):
+
+Attributs de qualité associés: `Couplage`
+> Le nombre de sous-classes directes d'une classe. La taille de NOC indique approximativement comment une application se réutilise. On suppose que plus une classe compte d'enfants, plus le responsable de la classe a la responsabilité de ne pas perturber le comportement des enfants. En conséquence, il est plus difficile de modifier la classe et nécessite davantage de tests.
+
+| ![Depth of Inheritance Tree](./assets/metrics_diagrams/dit/dit-overview.png) |
+|:--:|
+| *Depth of Inheritance Tree (DIT)* |
+
+On peut constater dans le diagramme ci-dessus qu'une grande partie du projet (585 classes soit 84%) a un très faible niveaux dans l'arbre d'héritage. Cela est considéré comme une bonne pratique dans le développement logiciel. Cela favorise une meilleure modularité, une maintenance plus facile et une réduction du couplage entre les classes.Cependant certaines partie du projet on un indicateur moyennement bas (45 classes soit 14.9%) et seulement 4 classes ont un indicateur moyen.
+Nous allons étudier les classes ayant un indicateur élevé.
+
+<!-- TODO -->
+
+<!-- - La hiérarchie des classes :
 ![La dépendence entre les différentes classes](./assets/package-dependencies.png)
 
 - La profondeur de l’arbre d’héritage (DIT ) :
@@ -248,7 +275,7 @@ particulier :
 
 - La stabilité des classes en général ou de quelques unes en particulier :
 
-- La cohésion des classes au sein d’un paquetage en particulier :
+- La cohésion des classes au sein d’un paquetage en particulier : -->
 
 ## 4 - Analyse approfondie
 
