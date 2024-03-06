@@ -31,15 +31,8 @@ Red5 is an Open Source Flash Server written in Java that supports:
   - Live Stream Publishing
   - Remoting
   - Protocols: RTMP, RTMPT, RTMPS, and RTMPE
-
-### 1.2 - Description du projet
-
-- Le [readme](https://github.com/Red5/red5-server/blob/master/README.md) est pertinent et complet. Il contient une description du projet, les commandes maven pour installer et lancer le projet. Il contient aussi les commandes pour build le projet depuis la source ainsi que celle pour faire fonctionner le projet dans Eclipse. Une liste des anciennes versions est également disponible dans le readme.
-
-- La documentation est pertinente et complète. Elle se situe dans le [wiki](https://github.com/Red5/red5-server/wiki) du projet sur github.
-Le wiki contient 23 catégories avec chacune des sous parties. Il y a des parties pour l'installation sous Linux et sous MacOS, pour les erreurs communes, les protocoles de transmission, pour un démarrage rapide avec le projet et une documentation sur la dernière version.
-
-### Commandes
+  
+Pour lancer le porjet on peut compter sur ces commandes : 
 
 - This will create the jars in the "target" directory of the workspace; this will also skip the unit tests :
 `mvn -Dmaven.test.skip=true install`
@@ -54,6 +47,14 @@ Le wiki contient 23 catégories avec chacune des sous parties. Il y a des partie
 `mvn eclipse:eclipse`
 
 - le projet est bien décrit dans le [readme](https://github.com/Red5/red5-server/blob/master/README.md), on sait exactement ce qu'il fait .
+
+
+### 1.2 - Description du projet
+
+- Le [readme](https://github.com/Red5/red5-server/blob/master/README.md) est pertinent et complet. Il contient une description du projet, les commandes maven pour installer et lancer le projet. Il contient aussi les commandes pour build le projet depuis la source ainsi que celle pour faire fonctionner le projet dans Eclipse. Une liste des anciennes versions est également disponible dans le readme.
+
+- La documentation est pertinente et complète. Elle se situe dans le [wiki](https://github.com/Red5/red5-server/wiki) du projet sur github.
+Le wiki contient 23 catégories avec chacune des sous parties. Il y a des parties pour l'installation sous Linux et sous MacOS, pour les erreurs communes, les protocoles de transmission, pour un démarrage rapide avec le projet et une documentation sur la dernière version.
 
 - Il manque peut-etre l'UML mais rien de bien méchant.
 
@@ -89,6 +90,7 @@ Le wiki contient 23 catégories avec chacune des sous parties. Il y a des partie
 
 - Pull-Request : 5
 ![les pull-request du projet](./assets/pull_request.png)
+Pour l'instant aucun Pull-Request n'est en attente.
 
 - on peut remarquer que `ko-fi.com/mondain` est bel et bien le contributeur principal,
 ![Contributeurs principaux](./assets/contributeurs2.png)
@@ -192,20 +194,20 @@ Parmi les packages, il y a 24 dépencances utilisées mais non déclaré et 24 d
     - `junit:junit:jar:5.0-SNAPSHOT:test`
     - `net.sf.ehcache:ehcache:jar:2.10.6:runtime`
 
-On peut constater des dépendances non déclarées sont présentes dans certains modules, ce qui peut poser des problèmes de maintenance et de compatibilité à long terme. Il y a aussi la présence de  dépendances déclarées sont présentes mais non utilisées dans plusieurs modules, ce qui donne potentiellement des opportunités d'optimisation et de nettoyage du code.
-Parmi les dépencdances qui reviennent souvent dans la liste de celles inutilisées on remarque que `junit` apparait 3 fois, ce qui laisse penser que les tests ne sont pas encore écrits mais prévus.
+On peut constater que des dépendances non déclarées sont présentes dans certains modules, ce qui peut poser des problèmes de maintenance et de compatibilité à long terme. Il y a aussi la présence de  dépendances déclarées qui sont présentes mais non utilisées dans plusieurs modules, ce qui donne potentiellement des opportunités d'optimisation et de nettoyage du code.
+Parmi les dépendences qui reviennent souvent dans la liste de celles inutilisées, on remarque que `junit` apparait 3 fois, ce qui laisse penser que les tests ne sont pas encore écrits mais prévus.
 
-Les bibliothèques réellement utilisées ne nous apprennent pas plus d'information sur le projet, elles correspondent à la ddescription des fonctionnalitées du projet. Il y a néanmoins l'utilisation de plusieurs bibliothèques pour des fonctionnalités similaires, telles que les bibliothèques de log `slf4j-api` et `logback-classic,` qui semble être justifiée, car elles offrent chacune des fonctionnalités complémentaires ou des intégrations avec d'autres outils ou frameworks.
+Les bibliothèques réellement utilisées ne nous apprennent pas plus d'informations sur le projet, elles correspondent à la description des fonctionnalités du projet. Il y a néanmoins l'utilisation de plusieurs bibliothèques pour des fonctionnalités similaires, telles que les bibliothèques de log `slf4j-api` et `logback-classic,` qui semble être justifié, car elles offrent chacune des fonctionnalités complémentaires ou des intégrations avec d'autres outils ou frameworks.
 
 ### 3.2 - Organisation en paquetages [Sara]
 
-- Le nombre de paquetages : il y a 6 packages principaux,
+- Le nombre de paquetages : il y a 5 packages principaux au total dans projet parent (red5-parent):
    - red5-client
    - red5-io
    - red5-server
    - red5-server-common
    - red5-service
-   - red5-servlet
+   - red5-servlet, celui qui gère l'HTML, mais ici on citera juste ce qu'il fait mais il ne sera pas étudié en détails car ce n'est pas un package principal.
 Les différents packages ont chacun un role principal dans la création de ce projet,
 ils gèrent tout du début jusqu'à la fin, du server aux clients en passant par les différents
 services qu'ils proposent.
@@ -228,7 +230,8 @@ Il peut être utilisé par Server pour accéder à des fonctionnalités communes
   La liste des utilisateurs peut être trouvée ici: <https://groups.google.com/forum/#!forum/red5interest>
   Les versions automatisées peuvent être trouvées ici: <https://builds.apache.org/view/M-R/view/OpenMeetings/job/Red5-io/>
   - service : ce package gère les différents services proposés par le serveur Red5. Il est responsable de la mise en œuvre des fonctionnalités telles que le streaming vidéo et audio, l'enregistrement de flux client, la publication de flux en direct, etc.
-  - servlet : ce package contient les servlets utilisés pour la gestion des requêtes HTTP. Il peut être utilisé pour les fonctionnalités Web du serveur Red5, telles que l'administration à distance ou les interfaces utilisateur.
+  - servlet : ce package contient les servlets utilisés pour la gestion des requêtes HTTP. Il peut être utilisé pour les fonctionnalités Web du serveur Red5, telles que l'administration à distance ou les interfaces utilisateur, donc ce package n'est pas vraiment intéressant pour la suite de notre analyse, on va plutot se concentrer sur les packages principaux, les plus gros.
+  Car celui-la ne contient aucune classe.
 
 Chacun de ces packages joue un rôle spécifique dans le fonctionnement global du serveur Red5, en organisant le code en fonction de ses responsabilités et en facilitant la maintenance et le développement du projet.
 L'organisation en paquetages du projet Red5-Server semble être bien structurée, avec des packages clairement définis pour gérer différents aspects du serveur, ce qui contribue à la lisibilité, à la maintenabilité et à la scalabilité du code.
@@ -236,12 +239,18 @@ L'organisation en paquetages du projet Red5-Server semble être bien structurée
 ### 3.3 - Répartition des classes dans les paquetages [Sara]
 
 - Le nombre de classes par paquetage :
-   - red5-client
-   - red5-io
-   - red5-servlet
-   - red5-server
-   - red5-server-common
-   - red5-service
+   - red5-parent : 919 classes au total qui sont répartis dans les packages ci-dessous:
+   - red5-client : 134 classes, dont 
+   - red5-io : 220 classes,
+   - red5-server : 220 classes,
+   - red5-server-common : 337 classes,
+   - red5-service : 8 classes,
+ Le package le plus gros est  red5-server-common, ce qui est tout a fait normal car c'est la classe qui gère le code commun aux serveurs Red5 et aux clients.
+ le nombre minimum de classes dans un package : 8
+ le nombre maximum de classes dans un package : 337
+ le nombre moyen de classes dans un package : 183 classes
+ On peut également remarquer que les packages server et io ont le meme nombre de classes.
+ 
 
 - La répartition des classes dans les différents paquetages :
 
@@ -296,7 +305,9 @@ Nous allons étudier les classes ayant un indicateur élevé.
 - Le nombre de tests:
 Il est intéressant de remarquer que  dans le projet on nous dit de skip les tests, et de ce fait on a 0 tests qui passent alors qu'ils ont bel et bien fait des tests !
 Il est crucial pour tout projet logiciel d'avoir une suite de tests robuste pour garantir le bon fonctionnement du code.
-Dans le cas du projet Red5-Server, il noté que la commande pour exécuter les tests est configurée pour les ignorer (`mvn -Dmaven.test.skip=true`).
+par la suite on remarque qu'on 144 classes de test,
+et 172 JUnit test methodes.
+Dans le cas du projet Red5-Server, il est noté que la commande pour exécuter les tests est configurée pour les ignorer (`mvn -Dmaven.test.skip=true`).
 Cela signifie que les tests sont volontairement ignorés lors de la compilation et de l'exécution du projet. Par conséquent, aucun test unitaire n'est actuellement exécuté.
 Mais, en tentant tout de meme de les exécuter,
 en compilant et exécutant le projet on obtient:
@@ -306,13 +317,19 @@ en compilant et exécutant le projet on obtient:
   - [INFO] Red5 :: Service .................................... SUCCESS [  0.290 s]
   - [INFO] Red5 :: Server ..................................... FAILURE [  1.069 s]
   - [INFO] Red5 :: Client ..................................... SKIPPED
+66 classes de tests dans red5-client, et 16 JUnit methodes
+test
+5 classes de tests dans red5-server-common et 21 JUnit methodes test
+31 classes de tests dans red5-io et 92 JUnit methodes test
+42 classes de tests dans red5-server et 43 JUnit methodes test (ce sont ces tests qui échouent)
+Tandis que dans red5-service il y a 0 classes de tests et 0 methodes JUnit test.
 
-- On a les tests de IO, Server Common et Service qui passent, contrairement à ceux de Server qui échouent (c'est d'ailleurs normal car dans le dossier Server il n'y a quasiment aucun test),
+- On a les tests de IO, Server Common et Service qui passent, contrairement à ceux de Server qui échouent ,
 - Concernant le dossier Client ils ont été skip car dans les tests ils ont mis une variable pour expressement skip les tests.
-
+Pour le package red5-service ils n'ont effectué aucun test.
 - La couverture de tests :
-Couverture de tests très faible (0-5%),
-puis les tests ont été ignorés (skip), il n'est pas vraiment possible de déterminer la couverture des tests,
+Couverture de tests très faible (7.38%),
+puisque les tests ont été ignorés (skip), il n'est pas vraiment possible de déterminer la couverture des tests exacte,
 il y a des tests quasiment vides et donc on optera plutot pour l'analyse du code que l'analyse des tests en profondeur ( car il n'y en a quasiment pas !! ) sur 31k lignes de code.
 Ce qui est tout de meme dommage !
 
@@ -336,20 +353,52 @@ des tests manquants voire inexistants, ce qui peut compromettre la qualité et l
 Il faudrait améliorer la qualité des tests.
 
 ### 4.2 - Commentaires [Sara]
+Sur tout le projet, on a remarqué qu'il y avait un ratio de 35.96% de commentaires,
 
 - le nombre de lignes de commentaires : concernant les commentaires on avait remarqué que plein de tests ont été commentés ( probablement car ils ne passaient pas),
+Dans le projet red5-parent il y a au total 40259 lignes de codes commentés (CLOC), 
+répartis comme cela : 
+   - red5-client : 1737 CLOC
+   - red5-io : 10199 CLOC
+   - red5-server : 8768 CLOC
+   - red5-server-common : 19096 CLOC
+   - red5-service : 389 CLOC
+On remarque que le package ou il y a le plus de commentaires est red-server-common, d'un point de vue logique c'est normal car c'est le package qui contient le plus de classes (337), 
 
-- le type de commentaire: Javadoc, code commenté, licence, commentaire
+- le type de commentaire: 29044 (JLOC) Javadoc sur tout le projet,
+dont :
+   - red5-client : 951 JLOC sur 1737 CLOC, c'est le package qui a le plus de javadoc 
+   - red5-io : 7302 JLOC sur 10199 CLOC
+   - red5-server : 5218 JLOC sur 8768 CLOC
+   - red5-server-common : 15416 JLOC sur 19096 CLOC
+   - red5-service : 157 JLOC sur  389 CLOC
+ensuite on les commentaires :
+   - red5-client : 951 JLOC sur 1737 CLOC, c'est le package qui a le plus de javadoc 
+   - red5-io : 7302 JLOC sur 10199 CLOC
+   - red5-server : 5218 JLOC sur 8768 CLOC
+   - red5-server-common : 15416 JLOC sur 19096 CLOC
+   - red5-service : 157 JLOC sur  389 CLOC
+   
+ code commenté, licence, commentaire
 pertinent :
 
 - les parties sans commentaires :
 les tests et des parties de codes sur les codecs
+pour le nombre total de lignes de codes pas commenté, on a 71039 (NCLOC)
+pour le nombre total de lignes de tests pas commenté, on 6557 (NCLOCt)
 
 ### 4.3 - Dépréciation [Sara]
 
 - les bouts de code dépréciés (classes, méthodes) :
+![Code déprécié exemple](./assets/exemple.png)
+![Fix Code déprécié](./assets/exemple2.png)
 
 - les appels à du code déprécié :
+
+- Code déprécié toujours utilisé : 
+![Code déprécié toujours utilisé](./assets/deprecate_still_used.png)
+   
+   
 
 ### 4.4 - Duplication du code
 
