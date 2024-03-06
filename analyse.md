@@ -1,11 +1,51 @@
-# Projet de GL
+# Rapport de projet de GL
+![Red5-Server](./assets/red5-server.jpg)
 
-## Binome
+## L3 Informatique
+
+## Membres du groupe 
 
 - Sara Lyna OUYAHIA
 - Thibault TISSERAND
 
-## Partie 1 : Audit du projet
+# Table des matières 
+- Présentation Globale du projet
+  - Utilité du projet
+  - Description du projet
+
+- Historique du logiciel
+  - Analyse du git
+
+- Architecture logicielle
+  - Utilisation de bibliothèques extérieures
+  - Organisation en paquetages
+  - Répartition des classes dans les paquetages
+  - Organisation des classes
+
+- Analyse approfondie
+  - Tests
+  - Commentaires
+  - Dépréciation
+  - Duplication de code
+  - God Classes
+  - Analyse des méthodes
+
+- Nettoyage de Code et Code smells
+  - Règles de nommage
+  - Nombre magique
+  - Structure du code
+  - Code mort
+
+- Amélioration possibles du projet
+
+# Outils utilisés 
+Pour l'analyse du projet red5-server, nous avons été amenés à utiliser plusieurs outils et IDE,
+ - SonarQube
+ - Eclipse
+ - IntelliJ
+
+
+## Partie 1 : Audit du projet (Analyse de la qualité logicielle du projet red5-server)
 
 ## Contexte
 
@@ -52,6 +92,7 @@ Pour lancer le porjet on peut compter sur ces commandes :
 ### 1.2 - Description du projet
 
 - Le [readme](https://github.com/Red5/red5-server/blob/master/README.md) est pertinent et complet. Il contient une description du projet, les commandes maven pour installer et lancer le projet. Il contient aussi les commandes pour build le projet depuis la source ainsi que celle pour faire fonctionner le projet dans Eclipse. Une liste des anciennes versions est également disponible dans le readme.
+Le fichier readme est écrit de manière à guider l’utilisateur à installer la librairie sur son projet à lui et non à le modifier, dans ce sens le readme est très pertinent pour un utilisateur de la librairie. 
 
 - La documentation est pertinente et complète. Elle se situe dans le [wiki](https://github.com/Red5/red5-server/wiki) du projet sur github.
 Le wiki contient 23 catégories avec chacune des sous parties. Il y a des parties pour l'installation sous Linux et sous MacOS, pour les erreurs communes, les protocoles de transmission, pour un démarrage rapide avec le projet et une documentation sur la dernière version.
@@ -86,6 +127,9 @@ Le wiki contient 23 catégories avec chacune des sous parties. Il y a des partie
 - Nombre de commits total : 622 (15/02/2024)
 ![Nombre de commits total du projet](./assets/commit.png)
 
+- Les différents contributeurs contribuent de façon non équilibré dans le temps, en effet ils s'arrêtent de contribuer à un certain moment
+mais le projet reste actif car il ya d’autres contributeurs nouveaux qui prennent le relais.
+
 - Issues : 36 (15/02/2024)
 
 - Pull-Request : 5
@@ -99,7 +143,7 @@ un site spécial pour que tout le monde puisse corriger les bugs en open source.
 - Le projet est toujours actif à l'heure d'aujourd'hui,le dernier commit date d'une semaine, pour un projet de cette envergure on peut dire qu'il est assez bien maintenu.
 
 - Au total il y a huit branches distinctes,
-  - master : la branche par défaut
+  - master : la branche par défaut qui est d'ailleurs toujours active au jour d'aujourd'hui.
   - snmp : branche ajoutée récemment (une semaine)
   - tc10migrate : branche récente (2 semaines)
   - bug/R5SI-786
@@ -253,6 +297,9 @@ L'organisation en paquetages du projet Red5-Server semble être bien structurée
  
 
 - La répartition des classes dans les différents paquetages :
+la majorité des classes se trouve dans le package red5-server-common, 
+mais cela permet de mieux identifier le rôle de chaque package puisque, comme indiqué précédemment, les paquetages ont une spécialisation.
+et ensuite vient red5-io et red5-server qui ont tout deux 220 classes, logique car ce sont les packages principaux du projet.
 
 - Le couplage et la cohésion au sein des paquetages de quelques uns en
 particulier :
@@ -365,7 +412,13 @@ répartis comme cela :
    - red5-service : 389 CLOC
 On remarque que le package ou il y a le plus de commentaires est red-server-common, d'un point de vue logique c'est normal car c'est le package qui contient le plus de classes (337), 
 
-- le type de commentaire: 29044 (JLOC) Javadoc sur tout le projet,
+- le type de commentaire: 
+Il existe de nombreux types de commentaires répértoriés dans notre projet, on relève notamment
+de la javadoc, soit une courte description sur la fonctionnalité de la classe, soit une documentation assez détaillée pour l'utilisateur.
+de la Licence, chaque fichier comporte d’ailleurs un entête de licence,
+ou sinon du code commenté ce qui n’est pas pratique car il vaut mieux utiliser un système de gestion de version pour récupérer le code des anciennes versions.
+
+donc on a : 29044 (JLOC) Javadoc sur tout le projet,
 dont :
    - red5-client : 951 JLOC sur 1737 CLOC, c'est le package qui a le plus de javadoc 
    - red5-io : 7302 JLOC sur 10199 CLOC
@@ -390,10 +443,14 @@ pour le nombre total de lignes de tests pas commenté, on 6557 (NCLOCt)
 ### 4.3 - Dépréciation [Sara]
 
 - les bouts de code dépréciés (classes, méthodes) :
+L’analyse avec IntelliJ montre la présence de bouts de code dépréciés, et la façon de comment le fixer.
 ![Code déprécié exemple](./assets/exemple.png)
 ![Fix Code déprécié](./assets/exemple2.png)
 
 - les appels à du code déprécié :
+Cela signifie que dans le projet certaines classes, y compris les méthodes, utilisent une version de code "dépassée" et donc dépréciée, pouvant compromettre la qualité ainsi que le bon fonctionnement du code non déprécié et donc du module.
+l'utilisation de code déprécié n'a probablement pas
+d’impact sur l'ensemble du projet car non utilisé, mais pour une bonne pratique de programmation, il peut être judicieux de remplacer ce code par une version plus à jour.
 
 - Code déprécié toujours utilisé : 
 ![Code déprécié toujours utilisé](./assets/deprecate_still_used.png)
@@ -435,7 +492,9 @@ médiane) :
 
 ### 5.1 - Règles de nommage [Sara]
 
-le nom des packages est bien choisi, simple et efficace , on comprend qu'il y a un dossier Server qui gère les servers, un dossier client, un dossier IO pour les sockets, et Service pour les services que propose le logiciel.
+Le nom des packages est bien choisi, simple et efficace , on comprend qu'il y a un dossier Server qui gère les servers, un dossier client, un dossier IO pour les sockets, et Service pour les services que propose le logiciel.
+De manière tout aussi générale, les noms des classes respectent les conventions de nommage des classe Java.
+Le nom d'une classe commence par une lettre majuscule suivie de lettres minuscules sans espaces. Mais aussi chaque nom de classe donne une idée de l'utilité de la classe elle-meme.
 
 ### 5.2 - Nombre magique
 
@@ -444,10 +503,13 @@ le nom des packages est bien choisi, simple et efficace , on comprend qu'il y a 
 ### 5.4 - Code mort [Sara]
 
 - Code Smells : 3000 !
+méthodes vides,
+méthodes / classes jamais appelées,
+On doit les supprimer car ils prennent de la place et rendent la compréhension et la maintenance du code compliquées.
 
 ---------------------------------------------------------
 
-## Partie 2 : Amélioration du projet
+## Amélioration possibles du projet
 
 ## 6 - Petites modifications [Sara]
 
