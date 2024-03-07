@@ -1,49 +1,52 @@
 # Rapport de projet de GL
+
 ![Red5-Server](./assets/red5-server.jpg)
 
 ## L3 Informatique
 
-## Membres du groupe 
+## Membres du groupe
 
 - Sara Lyna OUYAHIA
 - Thibault TISSERAND
 
-# Table des matières 
-- Présentation Globale du projet
-  - Utilité du projet
-  - Description du projet
+## Table des matières
 
-- Historique du logiciel
-  - Analyse du git
+- [Présentation Globale du projet](#1---présentation-globale-du-projet-sara)
+  - [Utilité du projet](#11---utilité-du-projet)
+  - [Description du projet](#12---description-du-projet)
 
-- Architecture logicielle
-  - Utilisation de bibliothèques extérieures
-  - Organisation en paquetages
-  - Répartition des classes dans les paquetages
-  - Organisation des classes
+- [Historique du logiciel](#2---historique-du-logiciel-sara)
+  - [Analyse du git](#21---analyse-du-git)
 
-- Analyse approfondie
-  - Tests
-  - Commentaires
-  - Dépréciation
-  - Duplication de code
-  - God Classes
-  - Analyse des méthodes
+- [Architecture logicielle](#3---architecture-logicielle)
+  - [Utilisation de bibliothèques extérieures](#31---utilisation-de-bibliothèques-extérieures)
+  - [Organisation en paquetages](#32---organisation-en-paquetages-sara)
+  - [Répartition des classes dans les paquetages](#33---répartition-des-classes-dans-les-paquetages-sara)
+  - [Organisation des classes](#34---organisation-des-classes)
 
-- Nettoyage de Code et Code smells
-  - Règles de nommage
-  - Nombre magique
-  - Structure du code
-  - Code mort
+- [Analyse approfondie](#4---analyse-approfondie)
+  - [Tests](#41---tests-sara)
+  - [Commentaires](#42---commentaires-sara)
+  - [Dépréciation](#43---dépréciation-sara)
+  - [Duplication de code](#44---duplication-du-code)
+  - [God Classes](#45---god-classes)
+  - [Analyse des méthodes](#46---analyse-des-méthodes)
 
-- Amélioration possibles du projet
+- [Nettoyage de Code et Code smells](#5---nettoyage-de-code-et-code-smells)
+  - [Règles de nommage](#51---règles-de-nommage-sara)
+  - [Nombre magique](#52---nombre-magique)
+  - [Structure du code](#53---structure-du-code)
+  - [Code mort](#54---code-mort-sara)
 
-# Outils utilisés 
+- [Amélioration possibles du projet](#6---petites-modifications-sara)
+
+## Outils utilisés
+
 Pour l'analyse du projet red5-server, nous avons été amenés à utiliser plusieurs outils et IDE,
- - SonarQube
- - Eclipse
- - IntelliJ
 
+- SonarQube
+- Eclipse
+- IntelliJ
 
 ## Partie 1 : Audit du projet (Analyse de la qualité logicielle du projet red5-server)
 
@@ -72,7 +75,7 @@ Red5 is an Open Source Flash Server written in Java that supports:
   - Remoting
   - Protocols: RTMP, RTMPT, RTMPS, and RTMPE
   
-Pour lancer le porjet on peut compter sur ces commandes : 
+Pour lancer le porjet on peut compter sur ces commandes :
 
 - This will create the jars in the "target" directory of the workspace; this will also skip the unit tests :
 `mvn -Dmaven.test.skip=true install`
@@ -88,11 +91,10 @@ Pour lancer le porjet on peut compter sur ces commandes :
 
 - le projet est bien décrit dans le [readme](https://github.com/Red5/red5-server/blob/master/README.md), on sait exactement ce qu'il fait .
 
-
 ### 1.2 - Description du projet
 
 - Le [readme](https://github.com/Red5/red5-server/blob/master/README.md) est pertinent et complet. Il contient une description du projet, les commandes maven pour installer et lancer le projet. Il contient aussi les commandes pour build le projet depuis la source ainsi que celle pour faire fonctionner le projet dans Eclipse. Une liste des anciennes versions est également disponible dans le readme.
-Le fichier readme est écrit de manière à guider l’utilisateur à installer la librairie sur son projet à lui et non à le modifier, dans ce sens le readme est très pertinent pour un utilisateur de la librairie. 
+Le fichier readme est écrit de manière à guider l’utilisateur à installer la librairie sur son projet à lui et non à le modifier, dans ce sens le readme est très pertinent pour un utilisateur de la librairie.
 
 - La documentation est pertinente et complète. Elle se situe dans le [wiki](https://github.com/Red5/red5-server/wiki) du projet sur github.
 Le wiki contient 23 catégories avec chacune des sous parties. Il y a des parties pour l'installation sous Linux et sous MacOS, pour les erreurs communes, les protocoles de transmission, pour un démarrage rapide avec le projet et une documentation sur la dernière version.
@@ -246,12 +248,12 @@ Les bibliothèques réellement utilisées ne nous apprennent pas plus d'informat
 ### 3.2 - Organisation en paquetages [Sara]
 
 - Le nombre de paquetages : il y a 5 packages principaux au total dans projet parent (red5-parent):
-   - red5-client
-   - red5-io
-   - red5-server
-   - red5-server-common
-   - red5-service
-   - red5-servlet, celui qui gère l'HTML, mais ici on citera juste ce qu'il fait mais il ne sera pas étudié en détails car ce n'est pas un package principal.
+  - red5-client
+  - red5-io
+  - red5-server
+  - red5-server-common
+  - red5-service
+  - red5-servlet, celui qui gère l'HTML, mais ici on citera juste ce qu'il fait mais il ne sera pas étudié en détails car ce n'est pas un package principal.
 Les différents packages ont chacun un role principal dans la création de ce projet,
 ils gèrent tout du début jusqu'à la fin, du server aux clients en passant par les différents
 services qu'ils proposent.
@@ -283,21 +285,20 @@ L'organisation en paquetages du projet Red5-Server semble être bien structurée
 ### 3.3 - Répartition des classes dans les paquetages [Sara]
 
 - Le nombre de classes par paquetage :
-   - red5-parent : 919 classes au total qui sont répartis dans les packages ci-dessous:
-   - red5-client : 134 classes, dont 
-   - red5-io : 220 classes,
-   - red5-server : 220 classes,
-   - red5-server-common : 337 classes,
-   - red5-service : 8 classes,
+  - red5-parent : 919 classes au total qui sont répartis dans les packages ci-dessous:
+  - red5-client : 134 classes, dont
+  - red5-io : 220 classes,
+  - red5-server : 220 classes,
+  - red5-server-common : 337 classes,
+  - red5-service : 8 classes,
  Le package le plus gros est  red5-server-common, ce qui est tout a fait normal car c'est la classe qui gère le code commun aux serveurs Red5 et aux clients.
  le nombre minimum de classes dans un package : 8
  le nombre maximum de classes dans un package : 337
  le nombre moyen de classes dans un package : 183 classes
  On peut également remarquer que les packages server et io ont le meme nombre de classes.
- 
 
 - La répartition des classes dans les différents paquetages :
-la majorité des classes se trouve dans le package red5-server-common, 
+la majorité des classes se trouve dans le package red5-server-common,
 mais cela permet de mieux identifier le rôle de chaque package puisque, comme indiqué précédemment, les paquetages ont une spécialisation.
 et ensuite vient red5-io et red5-server qui ont tout deux 220 classes, logique car ce sont les packages principaux du projet.
 
@@ -400,19 +401,20 @@ des tests manquants voire inexistants, ce qui peut compromettre la qualité et l
 Il faudrait améliorer la qualité des tests.
 
 ### 4.2 - Commentaires [Sara]
+
 Sur tout le projet, on a remarqué qu'il y avait un ratio de 35.96% de commentaires,
 
 - le nombre de lignes de commentaires : concernant les commentaires on avait remarqué que plein de tests ont été commentés ( probablement car ils ne passaient pas),
-Dans le projet red5-parent il y a au total 40259 lignes de codes commentés (CLOC), 
-répartis comme cela : 
-   - red5-client : 1737 CLOC
-   - red5-io : 10199 CLOC
-   - red5-server : 8768 CLOC
-   - red5-server-common : 19096 CLOC
-   - red5-service : 389 CLOC
-On remarque que le package ou il y a le plus de commentaires est red-server-common, d'un point de vue logique c'est normal car c'est le package qui contient le plus de classes (337), 
+Dans le projet red5-parent il y a au total 40259 lignes de codes commentés (CLOC),
+répartis comme cela :
+  - red5-client : 1737 CLOC
+  - red5-io : 10199 CLOC
+  - red5-server : 8768 CLOC
+  - red5-server-common : 19096 CLOC
+  - red5-service : 389 CLOC
+On remarque que le package ou il y a le plus de commentaires est red-server-common, d'un point de vue logique c'est normal car c'est le package qui contient le plus de classes (337),
 
-- le type de commentaire: 
+- le type de commentaire:
 Il existe de nombreux types de commentaires répértoriés dans notre projet, on relève notamment
 de la javadoc, soit une courte description sur la fonctionnalité de la classe, soit une documentation assez détaillée pour l'utilisateur.
 de la Licence, chaque fichier comporte d’ailleurs un entête de licence,
@@ -420,18 +422,19 @@ ou sinon du code commenté ce qui n’est pas pratique car il vaut mieux utilise
 
 donc on a : 29044 (JLOC) Javadoc sur tout le projet,
 dont :
-   - red5-client : 951 JLOC sur 1737 CLOC, c'est le package qui a le plus de javadoc 
-   - red5-io : 7302 JLOC sur 10199 CLOC
-   - red5-server : 5218 JLOC sur 8768 CLOC
-   - red5-server-common : 15416 JLOC sur 19096 CLOC
-   - red5-service : 157 JLOC sur  389 CLOC
+
+- red5-client : 951 JLOC sur 1737 CLOC, c'est le package qui a le plus de javadoc
+- red5-io : 7302 JLOC sur 10199 CLOC
+- red5-server : 5218 JLOC sur 8768 CLOC
+- red5-server-common : 15416 JLOC sur 19096 CLOC
+- red5-service : 157 JLOC sur  389 CLOC
 ensuite on les commentaires :
-   - red5-client : 951 JLOC sur 1737 CLOC, c'est le package qui a le plus de javadoc 
-   - red5-io : 7302 JLOC sur 10199 CLOC
-   - red5-server : 5218 JLOC sur 8768 CLOC
-   - red5-server-common : 15416 JLOC sur 19096 CLOC
-   - red5-service : 157 JLOC sur  389 CLOC
-   
+- red5-client : 951 JLOC sur 1737 CLOC, c'est le package qui a le plus de javadoc
+- red5-io : 7302 JLOC sur 10199 CLOC
+- red5-server : 5218 JLOC sur 8768 CLOC
+- red5-server-common : 15416 JLOC sur 19096 CLOC
+- red5-service : 157 JLOC sur  389 CLOC
+
  code commenté, licence, commentaire
 pertinent :
 
@@ -452,10 +455,8 @@ Cela signifie que dans le projet certaines classes, y compris les méthodes, uti
 l'utilisation de code déprécié n'a probablement pas
 d’impact sur l'ensemble du projet car non utilisé, mais pour une bonne pratique de programmation, il peut être judicieux de remplacer ce code par une version plus à jour.
 
-- Code déprécié toujours utilisé : 
+- Code déprécié toujours utilisé :
 ![Code déprécié toujours utilisé](./assets/deprecate_still_used.png)
-   
-   
 
 ### 4.4 - Duplication du code
 
