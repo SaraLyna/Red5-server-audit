@@ -460,10 +460,15 @@ d’impact sur l'ensemble du projet car non utilisé, mais pour une bonne pratiq
 
 ### 4.4 - Duplication du code
 
-- le code dupliqué : 4% de code dupliqué, plutot pas mal, on a 57k de lignes de code dupliquées. et 161 blocs dupliqués, on aurait facilement pu améliorer ça.
-![Schéma de la duplication de code](./assets/duplications-overview.png)
+Dans l'ensemble des modules le code dupliqué représente seulement 4% soit 57k de lignes de code dupliquées et 161 blocs dupliqués.
 
-- On peut voir que la grande majorité du code dupliqué est lié aux formats audio et aux codecs audios. Par exemple les 2 classes contenant le plus de code dupliqué sont `/io/m4a/impl/M4AReader.java` et `io/mp4/impl/MP4Reader.java` qui font quasiment .
+| ![Schéma de la duplication de code](./assets/duplications-overview.png) |
+|:--:|
+| *Graphique des lignes de code dupliquées* |
+
+On peut constater qu'une grande partie du code ne comporte pas de ligne dupliquée mais 2 gros points très distinct peuvent être observés. En analysant le code correspondant aux 2 gros points on remarque que ceux sont 2 classes très similaires. Il s'agit des classes `/io/m4a/impl/M4AReader.java` et `io/mp4/impl/MP4Reader.java` qui ont un fonctionnement très similaire et qui pourrait être amélioré avec une classe parente commune par exemple afin de ne plus avoir de code dupliqué.
+
+Le reste des points beaucoup moins gros en terme de lignes dupliquées mais présent en plus grand nombre représentent des codecs audio qui ont comme pour le cas au dessus des codes très similaire qui pourraient être encore plus généralisé qu'ils ne le sont déjà en améliorant la classe parente commune.
 
 ### 4.5 - God Classes
 
