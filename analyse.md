@@ -680,7 +680,7 @@ On doit les supprimer car ils prennent de la place et rendent la compréhension 
 
 dans notre inspection avec intelliJ on eu quelques exemples de code smells :
 
-![Code Smells exemple](./assets/test-smells.png)
+![Code Smells exemple](./assets/smells-test.png)
 
 par exemple pour y remédier on pourrait refactoriser le code pour éliminer les duplications et simplifier les structures complexes, supprimer le code inutilisé, appliquer les principes SOLID (responsabilité unique, open-closing, liskov's,..etc) et aussi encourager la relecture du code par les pairs, car ils pourrait y voir ce que quelqu'un d'autre aurait rater !
 
