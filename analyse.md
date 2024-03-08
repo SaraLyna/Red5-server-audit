@@ -646,7 +646,23 @@ médiane) :
 ### 5.1 - Règles de nommage [Sara]
 
 Le nom des packages est bien choisi, simple et efficace , on comprend qu'il y a un dossier Server qui gère les servers, un dossier client, un dossier IO pour les sockets, et Service pour les services que propose le logiciel.
-De manière tout aussi générale, les noms des classes respectent les conventions de nommage des classe Java.
+De manière toute aussi générale, les noms de la majorité des classes respectent les conventions de nommage des classe Java.
+Sauf qu'il y a tout de meme des exceptions :
+
+![meme nom que super class](./assets/error-name.png)
+
+Effectivement, si une classe porte le meme nom que l'une de ses super-classes, ça pourrait porter à confusion et rendre le code difficile à lire et à comprendre.
+9a pourrait conduire les développeurs qui travaillent dessus à modifier le mauvaid code et donc conduire à des erreurs, cela viole le principe de clarté car le nom d'une classe doit etre simple et descriptif, or que si on a deux classes qui portent le meme nom c'est difficile à comprendre, ça rend également la maintenance plus difficile car les développeurs prendraient plus de temps à repérer la bonne classe avec le bon nom.
+Comme ça peut poser des problèmes d'héritage si on fait hériter la mauvaise classe.
+
+On a aussi ce cas de figure :
+
+![exception](./assets/exception-name.png)
+
+Le suffixe Exception est généralement utilisé lorsqu'une classe gère une exception, ce qui n'est visiblement pas le cas ici, alors cela pourrait porter à confusion et ça viole les règles de nommage des classe.
+ça pourrait entrainer une mauvaise interprétation de la fonctionnalité de la classe, en pensant que celle-ci gère les exceptions ou les erreurs et induire en erreur les développeurs, il serait donc plus judicieux de réfactoriser le nom de cette classe en un nom bref et descriptif de sa fonctionnalité principale.
+
+
 Le nom d'une classe commence par une lettre majuscule suivie de lettres minuscules sans espaces. Mais aussi chaque nom de classe donne une idée de l'utilité de la classe elle-meme.
 
 ### 5.2 - Nombre magique
@@ -674,4 +690,7 @@ par exemple je pourrais essayer de faire un ou deux tests dans le package server
 - Utiliser les dépendances déclarées et non utilisées dans le projet, et également déclarer les dépendances utilisées mais non déclarées.
 - Faire un UML !
 - Débugger quelques bugs sur les 230 bugs trouvés.
+- Réorganiser une classe.
+- Fusionner des classes.
+- Supprimer des nombres magiques.
 
