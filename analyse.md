@@ -1,9 +1,10 @@
 #                                Rapport de projet de GL
+_____________________________________________________________________________________________
 #                           ![Red5-Server](./assets/red5-server.jpg)
 
 
 
-
+_____________________________________________________________________________________________
 
 
 ##                                  L3 Informatique
@@ -35,7 +36,7 @@
 
   
 #                                    Table des matières 
-
+_____________________________________________________________________________________________
                               1- Présentation Globale du projet
                                 1.1- Utilité du projet
                                 1.2- Description du projet
@@ -65,7 +66,7 @@
 
                               6- Amélioration possibles du projet
 
-
+_____________________________________________________________________________________________
 
 
 
@@ -75,9 +76,11 @@
 
 #                                     Outils utilisés 
 
-Pour l'analyse du projet red5-server, nous avons été amenés à utiliser plusieurs outils et ID- SonarQube
-                  - Eclipse
-                  - IntelliJ
+Pour l'analyse du projet red5-server, nous avons été amenés à utiliser plusieurs outils et IDE:
+  - SonarQube
+  - Eclipse
+  - IntelliJ
+  - CodeMr
 
 
 ##            Partie 1 : Audit du projet (Analyse de la qualité logicielle du projet red5-server)
@@ -87,6 +90,8 @@ Pour l'analyse du projet red5-server, nous avons été amenés à utiliser plusi
 Pour cette version du projet on s'intéressera à la toute dernière mise à jour datant du mois de février 2024.
 
 - Analyse du projet Red5-Server :  `https://github.com/Red5/red5-server`
+
+
 
 ##                          1 - Présentation Globale du projet 
 
@@ -459,18 +464,22 @@ Dans le cas du projet Red5-Server, il est noté que la commande pour exécuter l
 Cela signifie que les tests sont volontairement ignorés lors de la compilation et de l'exécution du projet. Par conséquent, aucun test unitaire n'est actuellement exécuté.
 Mais, en tentant tout de meme de les exécuter,
 en compilant et exécutant le projet on obtient:
+
+_____________________________________________________________________________________________
   - Red5 .............................................. ........SUCCESS [  0.009 s]
   - [INFO] Red5 :: IO ......................................... SUCCESS [  8.696 s]
   - [INFO] Red5 :: Server Common .............................. SUCCESS [  5.060 s]
   - [INFO] Red5 :: Service .................................... SUCCESS [  0.290 s]
   - [INFO] Red5 :: Server ..................................... FAILURE [  1.069 s]
   - [INFO] Red5 :: Client ..................................... SKIPPED
-66 classes de tests dans red5-client, et 16 JUnit methodes
-test
-5 classes de tests dans red5-server-common et 21 JUnit methodes test
-31 classes de tests dans red5-io et 92 JUnit methodes test
-42 classes de tests dans red5-server et 43 JUnit methodes test (ce sont ces tests qui échouent)
-Tandis que dans red5-service il y a 0 classes de tests et 0 methodes JUnit test.
+_____________________________________________________________________________________________
+
+- 66 classes de tests dans red5-client, et 16 JUnit methodes
+test.
+- 5 classes de tests dans red5-server-common et 21 JUnit methodes test.
+- 31 classes de tests dans red5-io et 92 JUnit methodes test.
+- 42 classes de tests dans red5-server et 43 JUnit methodes test (ce sont ces tests qui échouent).
+- Tandis que dans red5-service il y a 0 classes de tests et 0 methodes JUnit test.
 
 - On a les tests de IO, Server Common et Service qui passent, contrairement à ceux de Server qui échouent ,
 - Concernant le dossier Client ils ont été skip car dans les tests ils ont mis une variable pour expressement skip les tests.
