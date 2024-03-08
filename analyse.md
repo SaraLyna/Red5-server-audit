@@ -75,8 +75,7 @@
 
 #                                     Outils utilisés 
 
-Pour l'analyse du projet red5-server, nous avons été amenés à utiliser plusieurs outils et IDE,
-                  - SonarQube
+Pour l'analyse du projet red5-server, nous avons été amenés à utiliser plusieurs outils et ID- SonarQube
                   - Eclipse
                   - IntelliJ
 
@@ -107,6 +106,7 @@ Red5 is an Open Source Flash Server written in Java that supports:
   - Live Stream Publishing
   - Remoting
   - Protocols: RTMP, RTMPT, RTMPS, and RTMPE
+
   
 Pour lancer le projet on peut compter sur ces commandes : 
 
@@ -137,6 +137,7 @@ Le wiki contient 23 catégories avec chacune des sous parties. Il y a des partie
 
 - Il manque peut-etre l'UML mais rien de bien méchant.
 
+
 ##                              2 - Historique du logiciel
 
 ### 2.1 - Analyse du git
@@ -166,7 +167,7 @@ puisque (`ko-fi.com/mondain`) n'étant pas considéré comme un sponsor.
 
 - Nombre de commits total : on a compté au total 622 commits en date du (15/02/2024).
 
-      ![Nombre de commits total du projet](./assets/commit.png)
+![Nombre de commits total du projet](./assets/commit.png)
 
 
 - Les différents contributeurs contribuent de façon non équilibré dans le temps,
@@ -180,7 +181,9 @@ puisque (`ko-fi.com/mondain`) n'étant pas considéré comme un sponsor.
 Pour l'instant aucun Pull-Request n'est en attente.
 
 - on peut remarquer que `ko-fi.com/mondain` est bel et bien le contributeur principal,
-![Contributeurs principaux](./assets/contributeurs2.png)
+
+![Contributeurs principaux](./assets/contributeurs2.png),
+
 un site spécial pour que tout le monde puisse corriger les bugs en open source.
 
 - Le projet est toujours actif à l'heure d'aujourd'hui,le dernier commit date d'une semaine, pour un projet de cette envergure on peut dire qu'il est assez bien maintenu.
@@ -196,7 +199,7 @@ un site spécial pour que tout le monde puisse corriger les bugs en open source.
   - circleci-project-setup
 
 
-          ![Les différentes branches du projet](./assets/branches.png)
+![Les différentes branches du projet](./assets/branches.png)
 
 
 
@@ -500,8 +503,11 @@ Il faudrait améliorer la qualité des tests.
 ### 4.2 - Commentaires 
 Sur tout le projet, on a remarqué qu'il y avait un ratio de 35.96% de commentaires,
 
+![commentaires ratio](./assets/commentaire_ratio.png)
+
+
 - le nombre de lignes de commentaires : concernant les commentaires on avait remarqué que plein de tests ont été commentés ( probablement car ils ne passaient pas),
-Dans le projet red5-parent il y a au total 40259 lignes de codes commentés (CLOC), 
+Dans le projet red5-parent il y a au total 40262 lignes de codes commentés (CLOC), 
 répartis comme cela : 
    - red5-client : 1737 CLOC
    - red5-io : 10199 CLOC
@@ -534,8 +540,16 @@ pour le nombre total de lignes de tests pas commenté, on 6557 (NCLOCt)
 ### 4.3 - Dépréciation 
 
 - les bouts de code dépréciés (classes, méthodes) :
+Dans notre projet on a répértorié plusieurs warnings et bouts de codes dépréciés :
+
+![Code déprécié](./assets/deprecated.png)
+
 L’analyse avec IntelliJ montre la présence de bouts de code dépréciés, et la façon de comment le fixer.
+
 ![Code déprécié exemple](./assets/exemple.png)
+
+Et la façon dont on peut le corriger : 
+
 ![Fix Code déprécié](./assets/exemple2.png)
 
 - les appels à du code déprécié :
@@ -544,6 +558,32 @@ l'utilisation de code déprécié n'a probablement pas
 d’impact sur l'ensemble du projet car non utilisé, mais pour une bonne pratique de programmation, il peut être judicieux de remplacer ce code par une version plus à jour.
 
 - Code déprécié toujours utilisé : 
+
+![Code déprécié ](./assets/still_used.png)
+On pourrait par exemple corriger ce code déprécié en utilisanr la méthode recommandée `ServiceUtils#invokeOnAllScopeConnections`, on peut simplement remplacer l'appel à `invokeOnAllScopeConnections` dans la méthode `invokeOnClient`.
+Voici d'ailleurs la méthode corrigée : 
+_____________________________________________________________________________________________
+    /**
+    * Invoke a method on all connections of a client to a given scope and handle result.
+    *
+    * @param client
+    *            client to get connections for
+    * @param scope
+    *            scope to get connections of the client from
+    * @param method
+    *            name of the method to invoke
+    * @param params
+    *            parameters to pass to the method
+    * @param callback
+    *            object to notify when result is received
+    */
+    public static void invokeOnClient(IClient client, IScope scope, String method, Object[] params, IPendingServiceCallback callback) {
+        ServiceUtils.invokeOnAllScopeConnections(scope, method, params, callback);
+    }
+_____________________________________________________________________________________________
+
+On a également : 
+
 ![Code déprécié toujours utilisé](./assets/deprecate_still_used.png)
    
    
@@ -604,6 +644,7 @@ Le nom d'une classe commence par une lettre majuscule suivie de lettres minuscul
 méthodes vides,
 méthodes / classes jamais appelées,
 On doit les supprimer car ils prennent de la place et rendent la compréhension et la maintenance du code compliquées.
+
 
 ![Code Smells](./assets/codesmells.png)
 
