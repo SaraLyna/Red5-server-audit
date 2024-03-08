@@ -668,10 +668,10 @@ On doit les supprimer car ils prennent de la place et rendent la compréhension 
 ## 6 - Amélioration possibles du projet [sara]
 
 - Coder quelques tests en plus histoire d'avoir plus de couverture.
-- Décommenter les tests et essayer de les débuger.
+par exemple je pourrais essayer de faire un ou deux tests dans le package server-common.
+- Décommenter des bouts commentés et essayer de les débuger.
 - Supprimer le code déprécié et le remplacer par du bon code.
-- Faire les tests du package Server et Client.
 - Utiliser les dépendances déclarées et non utilisées dans le projet, et également déclarer les dépendances utilisées mais non déclarées.
 - Faire un UML !
-- Débugger les 230 bugs trouvés.
+- Débugger quelques bugs sur les 230 bugs trouvés.
 
