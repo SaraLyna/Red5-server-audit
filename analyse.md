@@ -670,14 +670,21 @@ Le nom d'une classe commence par une lettre majuscule suivie de lettres minuscul
 ### 5.3 - Structure du code
 
 ### 5.4 - Code mort [Sara]
-
-- Code Smells : 3000 !
-méthodes vides,
-méthodes / classes jamais appelées,
-On doit les supprimer car ils prennent de la place et rendent la compréhension et la maintenance du code compliquées.
-
+Grace à l'analyse effectuée avec SonarQube on eu comme résultat 3000 Code Smells.
+Ce qui est quand meme énorme,
 
 ![Code Smells](./assets/codesmells.png)
+
+Les "code smells" sont des indicateurs subtils de possibles défauts dans le code source, tels que des duplications inutiles, des structures complexes ou une mauvaise organisation, qui peuvent affecter la lisibilité, la maintenabilité et la robustesse du logiciel. Ils servent de signaux d'alarme aux développeurs pour réévaluer et améliorer la qualité du code.
+On doit les supprimer car ils prennent de la place et rendent la compréhension et la maintenance du code compliquées.
+
+dans notre inspection avec intelliJ on eu quelques exemples de code smells :
+
+![Code Smells exemple](./assets/test-smells.png)
+
+par exemple pour y remédier on pourrait refactoriser le code pour éliminer les duplications et simplifier les structures complexes, supprimer le code inutilisé, appliquer les principes SOLID (responsabilité unique, open-closing, liskov's,..etc) et aussi encourager la relecture du code par les pairs, car ils pourrait y voir ce que quelqu'un d'autre aurait rater !
+
+
 
 ---------------------------------------------------------
 
