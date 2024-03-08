@@ -171,19 +171,25 @@ et également trouvé leur contact (@mail).
 puisque (`ko-fi.com/mondain`) n'étant pas considéré comme un sponsor.
 
 - Nombre de commits total : on a compté au total 622 commits en date du (15/02/2024).
+Sur l'image on remarque bien que la période ou les commits étaient réguliers et en grosse quantité
+était entre 2014 et 2016.
+Ce qui est étonnant car le projet a démarré en Septembre 2005 et il est diffusé sur GitHub depuis 2008.
+On en déduit donc que depuis 2005 jusqu'à aujourd'hui plusieurs centaines de personnes essaient de résoudre les différents bugs du logiciel.
 
 ![Nombre de commits total du projet](./assets/commit.png)
 
 
 - Les différents contributeurs contribuent de façon non équilibré dans le temps,
  en effet ils s'arrêtent de contribuer à un certain moment,
+ par exemple il a été créé en 2005 puis diffusé sur GitHub en 2008, mais n'empeche la plus forte affluence de commits était en 2014-2016,
  mais le projet reste actif car il ya d’autres contributeurs nouveaux qui prennent le relais.
 
-- Issues : on en a 36 en date du (15/02/2024).
+- Issues : on en a 36 ouverts en date du (15/02/2024) et 215 ont été fermées car problèmes réglés.
 
-- Pull-Request : 5
+- Pull-Request : 5 ouverts au jour d'aujourd'hui, et 88 fermés.
 ![les pull-request du projet](./assets/pull_request.png)
-Pour l'instant aucun Pull-Request n'est en attente.
+
+La plus part de ces pull-request sont du refactoring de code, de la suppression, correction de bugs ...etc
 
 - on peut remarquer que `ko-fi.com/mondain` est bel et bien le contributeur principal,
 
@@ -458,7 +464,7 @@ Nous allons étudier les classes ayant un indicateur élevé.
 - Le nombre de tests:
 Il est intéressant de remarquer que  dans le projet on nous dit de skip les tests, et de ce fait on a 0 tests qui passent alors qu'ils ont bel et bien fait des tests !
 Il est crucial pour tout projet logiciel d'avoir une suite de tests robuste pour garantir le bon fonctionnement du code.
-par la suite on remarque qu'on 144 classes de test,
+par la suite on remarque qu'on a 144 classes de test,
 et 172 JUnit test methodes.
 Dans le cas du projet Red5-Server, il est noté que la commande pour exécuter les tests est configurée pour les ignorer (`mvn -Dmaven.test.skip=true`).
 Cela signifie que les tests sont volontairement ignorés lors de la compilation et de l'exécution du projet. Par conséquent, aucun test unitaire n'est actuellement exécuté.
@@ -476,7 +482,7 @@ ________________________________________________________________________________
 
 - 66 classes de tests dans red5-client, et 16 JUnit methodes
 test.
-- 5 classes de tests dans red5-server-common et 21 JUnit methodes test.
+- 5 classes de tests dans red5-server-common et 21 JUnit methodes test, c'est très peu pour ce package car c'est quand meme le package principal et ou il y a le plus de couplage avec les autres packages, donc plus de tests seraient les bienvenus.
 - 31 classes de tests dans red5-io et 92 JUnit methodes test.
 - 42 classes de tests dans red5-server et 43 JUnit methodes test (ce sont ces tests qui échouent).
 - Tandis que dans red5-service il y a 0 classes de tests et 0 methodes JUnit test.
@@ -518,11 +524,11 @@ Sur tout le projet, on a remarqué qu'il y avait un ratio de 35.96% de commentai
 - le nombre de lignes de commentaires : concernant les commentaires on avait remarqué que plein de tests ont été commentés ( probablement car ils ne passaient pas),
 Dans le projet red5-parent il y a au total 40262 lignes de codes commentés (CLOC), 
 répartis comme cela : 
-   - red5-client : 1737 CLOC
-   - red5-io : 10199 CLOC
-   - red5-server : 8768 CLOC
-   - red5-server-common : 19096 CLOC
-   - red5-service : 389 CLOC
+   - red5-client : 1737 CLOC avec un ratio de 23.30% commentaires
+   - red5-io : 10199 CLOC avec un ratio de 35.92 % commentaires
+   - red5-server : 8768 CLOC avec un ratio de 28.49% commentaires
+   - red5-server-common : 19096 CLOC avec un ratio de 45.72% commentaires
+   - red5-service : 389 CLOC avec un ratio de 24.81% commentaires
 On remarque que le package ou il y a le plus de commentaires est red-server-common, d'un point de vue logique c'est normal car c'est le package qui contient le plus de classes (337), 
 
 - le type de commentaire: 
@@ -659,14 +665,13 @@ On doit les supprimer car ils prennent de la place et rendent la compréhension 
 
 ---------------------------------------------------------
 
-## Amélioration possibles du projet
-
-## 6 - Petites modifications [Sara]
+## 6 - Amélioration possibles du projet [sara]
 
 - Coder quelques tests en plus histoire d'avoir plus de couverture.
 - Décommenter les tests et essayer de les débuger.
+- Supprimer le code déprécié et le remplacer par du bon code.
+- Faire les tests du package Server et Client.
+- Utiliser les dépendances déclarées et non utilisées dans le projet, et également déclarer les dépendances utilisées mais non déclarées.
 - Faire un UML !
+- Débugger les 230 bugs trouvés.
 
-## 7 - Moyennes modifications
-
-## 8 - Grandes modifications
