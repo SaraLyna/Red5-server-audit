@@ -173,6 +173,11 @@ un site spécial pour que tout le monde puisse corriger les bugs en open source.
 
 ## 3 - Architecture logicielle
 
+Tout d'abord afin de mieux comprendre les schémas qui vont suivre voici la légende des couleurs présentent.
+| ![caption](./assets/metrics_diagrams/caption.png) |
+|:--:|
+| *La signification des couleurs dans les diagrammes* |
+
 ### 3.1 - Utilisation de bibliothèques extérieures
 
 Le projet possède 102 packages exterieurs parmi les 117 packages référencés dans les différents `pom.xml`. Cela représente environ 358 classes externes utilisées par les différentes parties du projet.
@@ -362,10 +367,6 @@ Les composants qui utilisent RTMPConnection pour gérer le streaming sont étroi
 ### 3.4 - Organisation des classes
 
 <!-- Peut être mettre ca au début de la partie 3 ? -->
-Tout d'abord afin de mieux comprendre les schémas qui vont suivre voici la légende des couleurs présentent.
-| ![caption](./assets/metrics_diagrams/caption.png) |
-|:--:|
-| *La signification des couleurs dans les diagrammes* |
 
 Voici deux définitions des métriques utilisées pour l'analyse de l'organisations des classes.
 
@@ -384,7 +385,7 @@ Attributs de qualité associés: `Couplage`
 | *Depth of Inheritance Tree (DIT)* |
 
 On peut constater dans le diagramme ci-dessus qu'une grande partie du projet (585 classes soit 84%) a un très faible niveaux dans l'arbre d'héritage. Cela est considéré comme une bonne pratique dans le développement logiciel. Cela favorise une meilleure modularité, une maintenance plus facile et une réduction du couplage entre les classes.Cependant certaines partie du projet on un indicateur moyennement bas (45 classes soit 14.9%) et seulement 4 classes ont un indicateur moyen.
-Nous allons étudier les classes ayant un indicateur élevé.
+Nous allons donc étudier les classes ayant un indicateur élevé.
 
 <!-- TODO -->
 
@@ -607,7 +608,25 @@ Le nom d'une classe commence par une lettre majuscule suivie de lettres minuscul
 
 ### 5.2 - Nombre magique
 
+
+
 ### 5.3 - Structure du code
+
+Après avoir regardé une échantillon d'environ une vingtaine de classe dans le projet on peut constater à l'unanimité que chacune des classes respectent les convientions.
+
+![Variables de classe](./assets/instance_variables.png)
+
+Toutes les variables d'instance sont bien ensemble au début de la classe et commentées suivit du constructeur comme le montre l'image ci-dessus.
+De même pour les methodes des classes, les methodes `public` sont au dessus des méthodes `private` et `protected` comme le montre les images ci-dessous.
+Les méthodes les plus utilisées sont également déclarées en premier dans les classes, c'est principalement des `getter` et `setter` qui sont nécéssaires pour les auitres méthodes.
+
+| ![Methodes publique de classe](./assets/instance_public_methods.png) |
+|:--:|
+| *Methodes publiques les plus utilisées* |
+
+| ![Methodes privées de classe](./assets/instance_private_methods.png) |
+|:--:|
+| *Methodes privées en fin de classe* |
 
 ### 5.4 - Code mort [Sara]
 
