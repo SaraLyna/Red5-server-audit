@@ -7,34 +7,34 @@
 
 ## Table des matières
 
-- 1 - Présentation Globale du projet
-  - 1.1 - Utilité du projet
-  - 1.2 - Description du projet
+- [1 - Présentation Globale du projet](#1---présentation-globale-du-projet)
+  - [1.1 - Utilité du projet](#11---utilité-du-projet)
+  - [1.2 - Description du projet](#12---description-du-projet)
 
-- 2 - Historique du logiciel
-  - 2.1 - Analyse du git
+- [2 - Historique du logiciel](#2---historique-du-logiciel)
+  - [2.1 - Analyse du git](#21---analyse-du-git)
 
-- 3 - Architecture logicielle
-  - 3.1 - Utilisation de bibliothèques extérieures
-  - 3.2 - Organisation en paquetages
-  - 3.3 - Répartition des classes dans les paquetages
-  - 3.4 - Organisation des classes
+- [3 - Architecture logicielle](#3---architecture-logicielle)
+  - [3.1 - Utilisation de bibliothèques extérieures](#31---utilisation-de-bibliothèques-extérieures)
+  - [3.2 - Organisation en paquetages](#32---organisation-en-paquetages)
+  - [3.3 - Répartition des classes dans les paquetages](#33---répartition-des-classes-dans-les-paquetages)
+  - [3.4 - Organisation des classes](#34---organisation-des-classes)
 
-- 4 - Analyse approfondie
-  - 4.1 - Tests
-  - 4.2 - Commentaires
-  - 4.3 - Dépréciation
-  - 4.4 - Duplication de code
-  - 4.5 - God Classes
-  - 4.6 - Analyse des méthodes
+- [4 - Analyse approfondie](#4---analyse-approfondie)
+  - [4.1 - Tests](#41---tests)
+  - [4.2 - Commentaires](#42---commentaires)
+  - [4.3 - Dépréciation](#43---dépréciation)
+  - [4.4 - Duplication de code](#44---duplication-du-code)
+  - [4.5 - God Classes](#45---god-classes)
+  - [4.6 - Analyse des méthodes](#46---analyse-des-méthodes)
 
-- 5 - Nettoyage de Code et Code smells
-  - 5.1 - Règles de nommage
-  - 5.2 - Nombre magique
-  - 5.3 - Structure du code
-  - 5.4 - Code mort
+- [5 - Nettoyage de Code et Code smells](#5---nettoyage-de-code-et-code-smells)
+  - [5.1 - Règles de nommage](#51---règles-de-nommage-sara)
+  - [5.2 - Nombre magique](#52---nombre-magique)
+  - [5.3 - Structure du code](#53---structure-du-code)
+  - [5.4 - Code mort](#54---code-mort-sara)
 
-- 6 - Amélioration possibles du projet
+- [6 - Amélioration possibles du projet](#6---amélioration-possibles-du-projet-sara)
 
 ## Introduction
 
